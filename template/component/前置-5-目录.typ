@@ -20,7 +20,7 @@
     let prev-body = query(selector(heading.where(level: 1))).filter(h=>h.outlined).filter(h=>{ h.location().page() <= it.element.location().page() })
 
     let header-info = none
-    
+
     if prev-body.last().numbering != none {
       header-info = numbering(prev-body.last().numbering, prev-body.len()) + " " + prev-body.last().body
     } else {
@@ -28,11 +28,14 @@
       header-info = prev-body.last().body
     }
 
-    box(grid(columns: (auto, auto, auto), link(it.element.location())[
-      #text(weight: "bold")[
-        #header-info
-      ]
-    ], it.fill, it.page))
+    box(
+      grid(
+        columns: (auto, auto, auto), 
+        link(it.element.location())[#text(weight: "bold")[ #header-info ]], 
+        it.fill, 
+        it.page()
+      )
+    )
   }
 
   #show outline.entry.where(level: 2): it => {

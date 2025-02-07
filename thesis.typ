@@ -2,7 +2,7 @@
 #import "tools/lib.typ":*
 
 #let thesis(info: (:), body) = {
-  // assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 Typst 0.13.0")
+  assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0.")
 
   let info = info-check(info: info)
 
@@ -10,8 +10,8 @@
   show: figure-env-set.with()
   show: set-heading-style.with()
 
-  set par(first-line-indent: 2em, justify: true, leading: 0.8em, spacing: 0.8em)
-  set text(lang: "zh", font: font.宋体, size: font-size.小四)
+  set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: 0.8em, spacing: 0.8em)
+  set text(region: "cn", lang: "zh", font: font.宋体, size: font-size.小四)
 
   封面(info: info)
   中文扉页(info: info)
