@@ -2,22 +2,18 @@
 <strong>
 <samp>
 
-参考例子以及构建开始点：[电子科技大学毕业论文 Typst 例子](https://github.com/qujihan/uestc-typst-thesis-example)
+参考例子以及构建开始点：[电子科技大学学位论文 Typst 例子](https://github.com/qujihan/uestc-typst-thesis-example)
 
 </samp>
 </strong>
 </div>
 
 
-# 电子科技大学毕业论文模板
+# 电子科技大学学位论文模板
 > [!CAUTION]
-> 本模板支持的最小 [Typst](https://typst.app/home/) 版本为 `0.13.0`
+> [Typst](https://typst.app/home/) 版本 >= `0.13.0`
 > 
-> 请使用 `cargo install typst-cli@0.13.0-rc1` 按照 Typst.
-> 本模板使用了 `0.13.0` 的新功能
-
-
-
+> 请使用 `cargo install typst-cli@0.13.0-rc1` 安装 Typst.
 
 # 为什么使用 Typst?
 > [!IMPORTANT]  
@@ -37,18 +33,7 @@ Typst有以下优点：
 > [视觉形象识别系统](https://vi.uestc.edu.cn/)
 
 # TODO
-- [x] 基本框架完成
-- [ ] 打印模式.
-- [ ] 盲审模式.
-- [ ] 目录.
-    - [ ] 0.13.0 outline breaking change.
-    - [ ] 附录在目录中 按照写作顺序 显示为附录A, 附录B, 附录C. (Wait for Typst 0.13.0)
-    - [ ] 图表目录.
-- [ ] 添加对 info 信息的assert(包含类型以及取值).
-- [ ] 添加对 (本 or 专/学-硕 or 专/学-博) 进行封面自动区分.
-- [ ] 参考文献优化.
-- [ ] 针对中文的第一段进行特殊处理 (Wait for Typst 0.13.0).
-
+[TodoList](https://github.com/qujihan/uestc-thesis-typst-template/issues/2)
 
 # 微信交流群
 [欢迎加群讨论](https://github.com/qujihan/uestc-thesis-typst-template/issues/1)
