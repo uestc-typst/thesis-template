@@ -3,6 +3,9 @@
 但是为了以后方便替换成更成熟的工具, 这里单独抽象出来.
 
 # 工具列表
+## assert.typ
+Typst 0.13.0 类型对比不能使用 `type(item) == "array"` 这种代码, 所以把类型比较的代码抽象出来. 方便日后做类型检查.
+
 ## dict.typ
 关于操作Typst字典(KV表)的一些函数
 
@@ -12,9 +15,5 @@
 ## figure-i.typ
 为图表添加编号的工具
 
-## first-line-indent.typ
-
 ## fixed-witdh-content.typ
 一些固定长度的空格、文字、下划线等
-
-## header-footer.typ
