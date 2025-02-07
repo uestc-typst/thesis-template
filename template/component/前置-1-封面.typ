@@ -35,9 +35,22 @@
 
   #block(height: 70pt, inset: 0pt)[
     #set text(size: font-size.小二, weight: "bold")
-    #set align(center + bottom)
-    #box(height: 80%)[ 论文题目 ]
-    #fixed-width-underline(width: 20em, info.at(info-keys.论文中文标题))
+    #set align(center + top)
+    #box(height: 100%)[ 论文题目 ]
+    #box(height: 100%)[
+      #let title = info.at(info-keys.论文中文标题)
+      #let after-split = title.split("\n")
+
+      // 如果有换行符
+      // 需要换行且每一行都有下划线
+      #if after-split.len() > 1 {
+        for str in after-split {
+          fixed-width-underline(width: 20em, str)
+        }
+      } else if after-split.len() == 1 {
+        fixed-width-underline(width: 20em, after-split.at(0))
+      }
+    ]
   ]
 
   #block(height: 20pt)[#sym.space]

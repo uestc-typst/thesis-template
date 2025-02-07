@@ -42,23 +42,23 @@
 #let tbl-num(_) = {
   let chapter-num = counter(heading.where(level: 1)).display()
   let type-num = counter(figure-kind-tbl + chapter-num).display()
-  str(chapter-num) + "-" + str(int(type-num) + 1)
+  numbering("1", counter(heading.where(level: 1)).get().first()) + "-" + str(int(type-num) + 1)
 }
 
 #let pic-num(_) = {
   let chapter-num = counter(heading.where(level: 1)).display()
   let type-num = counter(figure-kind-pic + chapter-num).display()
-  str(chapter-num) + "-" + str(int(type-num) + 1)
+  numbering("1", counter(heading.where(level: 1)).get().first()) + "-" + str(int(type-num) + 1)
 }
 
 #let code-num(_) = {
   let chapter-num = counter(heading.where(level: 1)).display()
   let type-num = counter(figure-kind-code + chapter-num).display()
-  str(chapter-num) + "-" + str(int(type-num) + 1)
+  numbering("1", counter(heading.where(level: 1)).get().first()) + "-" + str(int(type-num) + 1)
 }
 
 #let table-figure(caption, table) = {
-  figure(table, caption: caption, supplement: [表格], numbering: tbl-num, kind: figure-kind-tbl)
+  figure(table, caption: caption, supplement: [表], numbering: tbl-num, kind: figure-kind-tbl)
 }
 
 #let code-figure(caption, code) = {
@@ -66,6 +66,6 @@
 }
 
 #let picture-figure(caption, picture) = {
-  figure(picture, caption: caption, supplement: [图片], numbering: pic-num, kind: figure-kind-pic)
+  figure(picture, caption: caption, supplement: [图], numbering: pic-num, kind: figure-kind-pic)
 }
 

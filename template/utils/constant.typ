@@ -56,7 +56,8 @@
   作者学位类型: "作者学位类型",
   作者专业学位类型: "作者专业学位类型",
   作者专业学位类型英文: "作者专业学位类型英文",
-  学专: "学专",
+  申请学位级别: "申请学位级别",
+  专业学位领域: "专业学位领域",
   // 学院信息
   学位授予单位: "学位授予单位",
   学位授予日期: "学位授予日期",
@@ -82,6 +83,10 @@
   附录: "附录",
   致谢: "致谢",
   参考文献: "参考文献",
+  中文摘要: "中文摘要",
+  中文摘要关键字: "中文摘要关键字",
+  英文摘要: "英文摘要",
+  英文摘要关键字: "英文摘要关键字",
   攻读学位期间取得成果: "攻读学位期间取得成果",
 )
 
@@ -99,10 +104,10 @@
   info-keys.作者学号: "123456789012",
   info-keys.作者学院: "计算机科学与工程学院 (网络空间安全学院)",
   info-keys.作者学院英文: "School of Computer Science and Engineering(School of Cyberspace Security)",
-  info-keys.作者学位类型: "硕士",
   info-keys.作者专业学位类型: "计算机技术",
   info-keys.作者专业学位类型英文: "Computer Science and Technology",
-  info-keys.学专: "专业学位",
+  info-keys.申请学位级别: "硕士",
+  info-keys.专业学位领域: "通信工程",
   // 学院信息
   info-keys.学位授予单位: "电子科技大学",
   info-keys.学位授予日期: "2025/06/01",
@@ -125,6 +130,10 @@
   info-keys.打印: true,
   info-keys.匿名: false,
   // 章节参数
+  info-keys.中文摘要: none,
+  info-keys.中文摘要关键字: none,
+  info-keys.英文摘要: none,
+  info-keys.英文摘要关键字: none,
   info-keys.附录: none,
   info-keys.致谢: none,
   info-keys.参考文献: none,

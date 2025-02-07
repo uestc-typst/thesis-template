@@ -32,7 +32,8 @@
 
   #block()[
     #text(size: font-size.小二, weight: "bold")[
-      #fixed-width-underline(width: auto, info.at(info-keys.论文中文标题))
+      // 这里去掉换行符
+      #fixed-width-underline(width: auto, info.at(info-keys.论文中文标题).replace("\n", ""))
     ]
     #block()[
       #set text(size: font-size.小四)
@@ -96,10 +97,10 @@
       grid(
         inset: 0pt,
         columns: (1fr, 1fr),
-        justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.作者学位类型)))),
+        justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.申请学位级别)))),
         justified-text-with-underline(6em, 12em, "专业学位类别", align(center, text(weight: "bold", info.at(info-keys.作者专业学位类型)))),
       ),
-      justified-text-with-underline(6em, 31em, "专业学位领域", align(center, text(weight: "bold", info.at(info-keys.学专)))),
+      justified-text-with-underline(6em, 31em, "专业学位领域", align(center, text(weight: "bold", info.at(info-keys.专业学位领域)))),
       grid(
         columns: (1fr, 1fr),
         justified-text-with-underline(6em, 12em, "论文提交时间", align(center, text(weight: "bold", info.at(info-keys.提交日期)))),

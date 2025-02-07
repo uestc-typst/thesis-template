@@ -11,9 +11,29 @@
       #line(length: 100%, stroke: 0.5pt)
     ]
   })
-  #align(center, text(size: font-size.小三, font: font.黑体,weight: "bold", "ABSTRACT"))
+
+  #v(1.5em)
+  #align(center, text(size: font-size.小三, font: font.黑体, weight: "bold", "ABSTRACT"))
+  #v(1em)
+
+  #let abstruct = info.at(info-keys.英文摘要)
+  #let keywords = info.at(info-keys.英文摘要关键字)
+
+  #if (abstruct != none) {
+    abstruct
+  }
 
   #linebreak()
-  #strong("Keywords:")
+  #if (keywords != none) {
+    strong("Keywords: ")
+    str(keywords.fold("", (str, item)=> {
+      if str == "" {
+        str + item
+      } else {
+        str + "、" + item
+      }
+    }))
+  }
+
   #pagebreak()
 ]
