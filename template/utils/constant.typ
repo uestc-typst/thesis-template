@@ -1,4 +1,4 @@
-#import "../../tools/lib.typ": *
+#import "../tools/lib.typ": *
 
 /*
   有关字体定义

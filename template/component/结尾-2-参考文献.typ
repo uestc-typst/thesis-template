@@ -1,5 +1,5 @@
 #import "../utils/lib.typ": *
-#import "../../tools/lib.typ":*
+#import "../tools/lib.typ":*
 #let check(info: (:)) = {}
 
 #let 参考文献(info: (:)) = [
@@ -7,8 +7,6 @@
     return
   }
   #set pagebreak(weak: true)
-  #set text(lang: "en")
-  #set heading(supplement: "参考文献")
 
   #let prefix-path = "../../../"
   #let bibs = info.at(info-keys.参考文献)

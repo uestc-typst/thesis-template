@@ -2,4 +2,6 @@
 
 #let check(info: (:)) = {}
 
-#let 缩略词表等注释表(info: (:)) = []
+#let 正文(info: (:), body) = [
+  #body
+]

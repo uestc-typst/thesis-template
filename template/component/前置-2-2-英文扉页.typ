@@ -1,7 +1,8 @@
 #import "../utils/lib.typ": *
-#import "../../tools/lib.typ":*
+#import "../tools/lib.typ":*
 
 #let check(info: (:)) = {}
+
 #let 英文扉页(info: (:)) = [
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
   #set block(inset: 0pt, outset: 0pt)

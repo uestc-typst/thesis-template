@@ -1,54 +1,32 @@
 #import "../utils/lib.typ": *
+
 #let check(info: (:)) = {}
 
 #let 目录(info: (:)) = [
-
-  #set page(header: context{
-    set align(center + bottom)
-    set text(size: font-size.五号)
-    block(inset: 0pt, height: 90%)[
-      #text("目 录")
-    ]
-    block(inset: 0pt)[
-      #line(length: 100%, stroke: 0.5pt)
-    ]
-  })
-
   #set align(center)
 
-  #outline(title: block()[
-    #v(1.5em)
-    #text(font: font.黑体, size: font-size.小三, "目 录")
-    #v(1em)
-  ], depth: 3, indent: 2em)
-
   #show outline.entry.where(level: 1): it => {
-    let prev-body = query(selector(heading.where(level: 1))).filter(h=>h.outlined).filter(h=>{ h.location().page() <= it.element.location().page() })
+    let prev-body = query(selector(heading.where(level: 1)))
+    .filter(h=>h.outlined)
+    .filter(h=>{ h.location().page() <= it.element.location().page() })
+    .last()
 
-    let header-info = none
+    let num-str = counter(heading).at(prev-body.location()).first()
+    let title-with-num = it.body()
 
-    if prev-body.last().numbering != none {
-      header-info = numbering(prev-body.last().numbering, prev-body.len()) + " " + prev-body.last().body
-    } else {
-      // 附录、致谢、参考文献等没有编号
-      header-info = prev-body.last().body
+    if it.element.numbering != none {
+      title-with-num = numbering(it.element.numbering, num-str) + h(0.5em) + it.body()
     }
 
     box(grid(
       columns: (auto, auto, auto),
-      link(it.element.location())[#text(weight: "bold")[ #header-info ]],
+      link(it.element.location())[#text(weight: "bold")[ #title-with-num ]],
       it.fill,
       it.page(),
     ))
   }
 
-  #show outline.entry.where(level: 2): it => {
-    it
-  }
-
-  #show outline.entry.where(level: 3): it => {
-    it
-  }
-
-  #pagebreak()
+  #heading("目 录")
+  #outline(title: none, depth: 3, indent: 2em)
+  #pagebreak(weak: true)
 ]

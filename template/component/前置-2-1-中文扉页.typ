@@ -1,5 +1,5 @@
 #import "../utils/lib.typ": *
-#import "../../tools/lib.typ":*
+#import "../tools/lib.typ":*
 
 #let check(info: (:)) = {}
 

@@ -1,7 +1,8 @@
 #import "../utils/lib.typ": *
-#import "../../tools/lib.typ":*
+#import "../tools/lib.typ":*
 
 #let check(info: (:)) = {}
+
 #let 独创性声明和论文使用授权(info: (:)) = [
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
