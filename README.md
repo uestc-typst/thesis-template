@@ -29,6 +29,15 @@ Typst有以下优点：
 - 原生支持Unicode(UTF-8). 如果看一下模板代码就会发现, 模板文件名/函数名 甚至是中文. (这才是**现代**编程语言, Orz)
 - (个人项)Typst是一个有意思且语言, 而LaTeX...
 
+# FAQ
+- 我Clone后怎么使用？
+    - 移步 [电子科技大学学位论文 Typst 例子](https://github.com/qujihan/uestc-typst-thesis-example), 这里有丰富的使用案例, 这里只是模板仓库. 
+    - 我遵循模板与内容分离的原则, 能多离就多离, 实在离不了那就给 Typst 提 issues!
+- 模板仓库为什么使用 git submodule?
+    - 项目迭代速度快, submodule 更新方便.
+- Typst提供的网页编辑器可以使用么？
+    - 快了! 等模板稳定了！
+
 # 参考
 > [学校要求](https://gr.uestc.edu.cn/xiazai/114/3917)
 > 
