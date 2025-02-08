@@ -1,8 +1,6 @@
 #import "../utils/lib.typ": *
 #import "../tools/lib.typ":*
 
-#let check(info: (:)) = {}
-
 #let 封面(info: (:)) = [
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })

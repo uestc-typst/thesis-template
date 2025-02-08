@@ -1,9 +1,8 @@
 #import "../utils/lib.typ": *
 #import "../tools/lib.typ":*
 
-#let check(info: (:)) = {}
-
 #let 独创性声明和论文使用授权(info: (:)) = [
+  // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
   #set par(first-line-indent: 2em, justify: true, leading: 1.5em, linebreaks: "optimized", spacing: 2em)

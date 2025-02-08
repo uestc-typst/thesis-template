@@ -1,10 +1,10 @@
 #import "../utils/lib.typ": *
 #import "../tools/lib.typ":*
 
-#let check(info: (:)) = {}
-
 #let 中文扉页(info: (:)) = [
+  // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
+
   #set block(inset: 0pt, outset: 0pt)
   #set grid(inset: 0pt)
   #set grid.cell(inset: 0pt)

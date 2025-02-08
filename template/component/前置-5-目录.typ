@@ -1,7 +1,5 @@
 #import "../utils/lib.typ": *
 
-#let check(info: (:)) = {}
-
 #let 目录(info: (:)) = [
   #set align(center)
 
