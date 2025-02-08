@@ -12,9 +12,9 @@
 
   #let prefix-path = "../../../"
   #let bibs = info.at(info-keys.参考文献)
-  #let path = if is-str(bibs) {
+  #let path = if type(bibs) == str {
     prefix-path + bibs
-  } else if is-array(bibs) {
+  } else if type(bibs) == array {
     bibs = bibs.map((item) => { prefix-path + item })
   }
 
