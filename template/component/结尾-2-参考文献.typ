@@ -16,5 +16,5 @@
     bibs = bibs.map((item) => { prefix-path + item })
   }
 
-  #bibliography(bibs, full: true, title: "参考文献")
+  #bilingual-bibliography(body: bibs, full: true)
 ]

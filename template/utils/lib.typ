@@ -2,6 +2,8 @@
 
 #import "footnote.typ": set-footnote
 
+#import "bilingual-bibliography.typ": bilingual-bibliography
+
 #import "heading.typ": (
   set-global-heading,
   set-中文摘要-heading,
