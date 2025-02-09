@@ -2,6 +2,8 @@
 
 #import "footnote.typ": set-footnote
 
+#import "ref.typ": set-ref
+
 #import "bilingual-bibliography.typ": bilingual-bibliography
 
 #import "heading.typ": (

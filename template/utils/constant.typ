@@ -24,7 +24,8 @@
   小七: 5pt,
 )
 
-#let font = (宋体: ("Times New Roman", "SimSun"), 黑体: ("Times New Roman", "SimHei"))
+// #let font = (宋体: ("Times New Roman", "SimSun"), 黑体: ("Times New Roman", "SimHei"))
+#let font = (宋体: ("Times New Roman", "Source Han Serif SC"), 黑体: ("Times New Roman", "Source Han Sans SC"))
 
 /*
   信息常量
