@@ -3,7 +3,8 @@
 #let abstruct-template(title, abstruct, keywords-title, keywords-split-char, keywords) = {
   heading(title)
   abstruct
-  linebreak()
+  v(2em)
+  h(-2em)
   if (keywords != none) {
     strong(keywords-title)
     str(keywords.fold("", (str, item)=> {
@@ -14,7 +15,6 @@
       }
     }))
   }
-
   pagebreak()
 }
 
@@ -28,10 +28,12 @@
 ]
 
 #let 英文摘要(info: (:)) = [
+  #set text(region: "en", lang: "en")
   #let abstruct = info.at(info-keys.英文摘要)
   #let keywords = info.at(info-keys.英文摘要关键字)
   #if abstruct == none or keywords == none {
     return
   }
-  #abstruct-template("ABSTRACT", abstruct, "Keywords:", ",", keywords)
+
+  #abstruct-template("ABSTRACT", abstruct, "Keywords: ", ", ", keywords)
 ]
