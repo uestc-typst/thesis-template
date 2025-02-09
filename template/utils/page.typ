@@ -21,6 +21,10 @@
   block(inset: 0pt)[
     #line(length: 100%, stroke: 0.5pt)
   ]
+
+  // 在Typst中默认footnote编号是连续的, 也就是第一页如果有1 2 3, 那么第二页就会从4开始
+  // 学校要求每一页单独计数, 所以这里需要手动重置一下footnote编号
+  counter(footnote).update(0)
 }
 
 #let header-中文摘要 = header-with-text("摘 要")
@@ -50,6 +54,10 @@
   block(inset: 0pt)[
     #line(length: 100%, stroke: 0.5pt)
   ]
+
+  // 在Typst中默认footnote编号是连续的, 也就是第一页如果有1 2 3, 那么第二页就会从4开始
+  // 学校要求每一页单独计数, 所以这里需要手动重置一下footnote编号
+  counter(footnote).update(0)
 }
 
 #let set-global-page(body) = {

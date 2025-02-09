@@ -10,6 +10,7 @@
   show: show-cn-fakebold.with()
   show: figure-env-set.with()
   show: set-global-heading.with()
+  show: set-footnote.with()
 
   set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: 0.8em, spacing: 0.8em)
   set text(region: "cn", lang: "zh", font: font.宋体, size: font-size.小四)

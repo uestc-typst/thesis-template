@@ -1,5 +1,7 @@
 #import "constant.typ": font, font-size, info-keys, info-kv, info-check
 
+#import "footnote.typ": set-footnote
+
 #import "heading.typ": (
   set-global-heading,
   set-中文摘要-heading,
