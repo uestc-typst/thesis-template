@@ -14,27 +14,33 @@
     pagebreak(weak: true)
     set text(size: font-size.小三, font: font.黑体)
     set align(center)
-    v(1.5em)
+    v(24pt)
     it
-    v(1em)
+    v(18pt)
   }
 
   show heading.where(level: 2): it => {
     set align(left)
     set text(size: font-size.四号, font: font.黑体)
+    v(18pt)
     it
+    v(6pt)
   }
 
   show heading.where(level: 3): it => {
     set align(left)
     set text(size: font-size.四号, font: font.黑体)
+    v(12pt)
     it
+    v(6pt)
   }
 
   show heading.where(level: 4): it => {
     set align(left)
     set text(size: font-size.小四, font: font.黑体)
+    v(12pt)
     it
+    v(6pt)
   }
 
   body
