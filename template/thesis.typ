@@ -13,7 +13,7 @@
   show: set-footnote.with()
   show: set-ref.with()
 
-  set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: 0.8em, spacing: 0.8em)
+  set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: 1em, spacing: 1em)
   set text(region: "cn", lang: "zh", font: font.宋体, size: font-size.小四)
 
   封面(info: info)
