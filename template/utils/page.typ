@@ -36,18 +36,32 @@
 #let header-正文 = context{
   set align(center + bottom)
   set text(size: font-size.小五)
-  block(inset: 0pt, height: 90%)[
+  block(
+    inset: 0pt,
+    height: 90%,
+  )[
     #if calc.even(counter(page).get().first()) {
       "电子科技大学硕士学位论文"
     } else {
-      let prev-body = query(selector(heading.where(level: 1))) // 找到所以一级标题
-      .filter(it=>it.outlined) // 过滤掉没有大纲的标题(从正文开始计入大纲)
-      .filter(it=>{ it.location().page() <= here().page() })
-
-      if prev-body.last().numbering != none {
-        numbering(prev-body.last().numbering, prev-body.len()) + " " + prev-body.last().body
+      let is-heading-1-page = false
+      let h = query(heading.where(level: 1).after(here())).filter(h => { h.location().page() == here().page() }).at(0, default: none)
+      if h != none {
+        is-heading-1-page = true
       } else {
-        prev-body.last().body
+        h = query(heading.where(level: 1).before(here())).at(-1, default: none)
+      }
+      if h != none {
+        let cnt = counter(heading).at(here()).at(0, default: 1)
+        if is-heading-1-page {
+          cnt = cnt + 1
+        }
+        let num = if h.numbering != none {
+          h.numbering
+        } else {
+          ""
+        }
+        let title-body = h.body
+        numbering(num, cnt) + " " + title-body
       }
     }
   ]
@@ -59,6 +73,8 @@
   // 学校要求每一页单独计数, 所以这里需要手动重置一下footnote编号
   counter(footnote).update(0)
 }
+
+#let header-致谢 = header-with-text("致 谢")
 
 #let set-global-page(body) = {
   set page(paper: "a4", header: none, footer: none)
@@ -85,6 +101,11 @@
   body
 }
 
-#let set-致谢-page(body) = set-正文-page(body)
+#let set-致谢-page(body) = {
+  set page(header: header-致谢, footer: footer-阿拉伯数字页码)
+  body
+}
+
 #let set-附录-page(body) = set-正文-page(body)
+
 #let set-参考文献-page(body) = set-正文-page(body)
