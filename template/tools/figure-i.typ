@@ -8,26 +8,32 @@
   show figure: it => {
     set align(center)
     if it.kind == figure-kind-code {
+      v(1em)
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
+      v(1.5em)
 
       let chapter-num = counter(heading.where(level: 1)).display()
       counter(figure-kind-code + str(chapter-num)).step()
     } else if it.kind == figure-kind-pic {
+      v(1em)
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
+      v(1.5em)
 
       let chapter-num = counter(heading.where(level: 1)).display()
       counter(figure-kind-pic + str(chapter-num)).step()
     } else if it.kind == figure-kind-tbl {
+      v(1em)
       it.body
       it.supplement
       " " + it.counter.display(it.numbering)
       " " + it.caption.body
+      v(1.5em)
 
       let chapter-num = counter(heading.where(level: 1)).display()
       counter(figure-kind-tbl + str(chapter-num)).step()
