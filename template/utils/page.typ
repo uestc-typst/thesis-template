@@ -55,13 +55,19 @@
         if is-heading-1-page {
           cnt = cnt + 1
         }
+
         let num = if h.numbering != none {
           h.numbering
         } else {
-          ""
+          none
         }
+
         let title-body = h.body
-        numbering(num, cnt) + " " + title-body
+        if num == none {
+          title-body
+        } else {
+          numbering(num, cnt) + " " + title-body
+        }
       }
     }
   ]
