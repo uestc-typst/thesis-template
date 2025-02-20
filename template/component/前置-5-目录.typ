@@ -17,8 +17,10 @@
     }
 
     box(grid(
-      columns: (auto, auto, auto),
-      link(it.element.location())[#text(weight: "bold")[ #title-with-num ]],
+      columns: (auto, 1fr, auto),
+      link(it.element.location())[
+        #text(weight: "bold")[ #title-with-num ]
+      ],
       it.fill,
       it.page(),
     ))
