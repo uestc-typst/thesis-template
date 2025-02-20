@@ -13,7 +13,13 @@
 > [!CAUTION]
 > [Typst](https://typst.app/home/) 版本 >= `0.13.0`
 > 
-> 请使用 `cargo install typst-cli@0.13.0-rc1` 安装 Typst.
+> 安装Typst:
+> 
+> Rust用户: `cargo install typst-cli`
+> 
+> MacOS用户: `brew install typst`
+> 
+> Windows用户: `scoop install typst`
 
 # 🎆 为什么使用 Typst?
 > [!IMPORTANT]  
