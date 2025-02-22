@@ -3,7 +3,7 @@
 #import "tools/lib.typ":*
 
 #let thesis(info: (:), body) = {
-  assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0.")
+  assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0, 当前版本为: " + str(sys.version))
 
   let info = info-check(info: info)
 
