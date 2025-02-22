@@ -1,6 +1,6 @@
 #import "../utils/lib.typ": *
 
-#let abstruct-template(title, abstruct, keywords-title, keywords-split-char, keywords) = {
+#let abstruct-template(info, title, abstruct, keywords-title, keywords-split-char, keywords) = {
   heading(title)
   abstruct
   v(2em)
@@ -15,7 +15,15 @@
       }
     }))
   }
+
   pagebreak()
+  context{
+    if info.at(info-keys.打印) and calc.odd(here().page()) {
+      set page(header: none, footer: none)
+      pagebreak(to: "odd")
+      counter(page).update(n => n - 1)
+    }
+  }
 }
 
 #let 中文摘要(info: (:)) = [
@@ -24,7 +32,7 @@
   #if abstruct == none or keywords == none {
     return
   }
-  #abstruct-template("摘要", abstruct, "关键词：", "，", keywords)
+  #abstruct-template(info, "摘要", abstruct, "关键词：", "，", keywords)
 ]
 
 #let 英文摘要(info: (:)) = [
@@ -35,5 +43,5 @@
     return
   }
 
-  #abstruct-template("ABSTRACT", abstruct, "Keywords: ", ", ", keywords)
+  #abstruct-template(info, "ABSTRACT", abstruct, "Keywords: ", ", ", keywords)
 ]
