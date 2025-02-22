@@ -1,0 +1,21 @@
+[package]
+name = "UESTC-thesis-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+authors = ["qujihan"]
+license = "Apache 2.0"
+description = "电子科技大学学位论文模板(University of Electronic Science and Technology of China Degree Thesis Template)"
+repository = "https://github.com/tzhTaylor/typst-sjtu-thesis-master"
+categories = ["thesis"]
+keywords = [
+    "University of Electronic Science and Technology of China",
+    "UESTC",
+    "电子科技大学",
+    "thesis",
+]
+
+[template]
+path = "."
+entrypoint = "lib.typ"
+thumbnail = "thumbnail.png"
