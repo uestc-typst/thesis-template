@@ -19,7 +19,7 @@
   pagebreak()
   context{
     if info.at(info-keys.打印) and calc.odd(here().page()) {
-      set page(header: none, footer: none)
+      set page(header: none, footer: none, numbering: none)
       pagebreak(to: "odd")
       counter(page).update(n => n - 1)
     }
