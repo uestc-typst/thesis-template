@@ -40,7 +40,7 @@
     inset: 0pt,
     height: 90%,
   )[
-    #if calc.even(counter(page).get().first()) {
+    #if calc.even(here().page()) {
       "电子科技大学硕士学位论文"
     } else {
       let is-heading-1-page = false
