@@ -23,7 +23,11 @@
   #block()[
     #set align(center)
     #set text(font: font.黑体, size: font-size.小三)
-    A Master Thesis Submitted to University of Electronic Science and Technology of China
+    #if info.at(info-keys.申请学位级别) == "硕士" {
+      text("A Master Thesis Submitted to \n University of Electronic Science and Technology of China")
+    } else if info.at(info-keys.申请学位级别) == "博士" {
+      text("A Doctoral Dissertation Submitted to \n University of Electronic Science and Technology of China")
+    }
   ]
 
   #v(16em)
@@ -32,24 +36,27 @@
     height: 140pt,
   )[
     #set align(center)
+    #let 学科名称 = if info.at(info-keys.学位类型) == "学术型" {
+      info.at(info-keys.作者学科专业英文)
+    } else if info.at(info-keys.学位类型) == "专业型" {
+      info.at(info-keys.作者专业学位类别英文)
+    } else {
+      ""
+    }
+
     #grid(
       columns: (1fr),
       rows: (1fr, 1fr, 1fr, 1fr, 1fr),
+      fixed-text-with-underline(7em, 28em, align(right)[Discipline], align(center, text(weight: "bold", 学科名称))),
+      fixed-text-with-underline(7em, 28em, align(right)[Student ID], align(center, text(weight: "bold", info.at(info-keys.作者学号)))),
+      fixed-text-with-underline(7em, 28em, align(right)[Author], align(center, text(weight: "bold", info.at(info-keys.作者英文名)))),
       fixed-text-with-underline(
         7em,
         28em,
-        align(right)[Discipline:],
-        align(center, text(weight: "bold", info.at(info-keys.作者专业学位类型英文))),
-      ),
-      fixed-text-with-underline(7em, 28em, align(right)[Student ID:], align(center, text(weight: "bold", info.at(info-keys.作者学号)))),
-      fixed-text-with-underline(7em, 28em, align(right)[Author:], align(center, text(weight: "bold", info.at(info-keys.作者英文名)))),
-      fixed-text-with-underline(
-        7em,
-        28em,
-        align(right)[Supervisor:],
+        align(right)[Supervisor],
         align(center, text(weight: "bold", info.at(info-keys.指导老师英文名) + "  " + info.at(info-keys.指导老师职称英文))),
       ),
-      fixed-text-with-underline(7em, 28em, align(right)[School:], align(center, text(weight: "bold", info.at(info-keys.作者学院英文)))),
+      fixed-text-with-underline(7em, 28em, align(right)[School], align(center, text(weight: "bold", info.at(info-keys.作者学院英文)))),
     )
   ]
   #pagebreak(weak: true)

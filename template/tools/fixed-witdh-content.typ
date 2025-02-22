@@ -1,7 +1,10 @@
 // 占 width 的宽度, 展开所有字符, 两端对其
 // [ 类 似 这 样 ]
 #let fixed-width-text-justified(width: auto, body) = {
-  box(width: width, stack(dir: ltr, ..body.clusters().map(x => [#x]).intersperse(1fr)))
+  if type(body) == str {
+    return box(width: width, stack(dir: ltr, ..body.clusters().map(x => [#x]).intersperse(1fr)))
+  }
+  return box(width: width, body)
 }
 
 // 占 width 的宽度画下划线, 其中包含一些字符
@@ -21,6 +24,7 @@
 #let justified-text-with-underline(text-width, underline-width, text-content, underline-content) = {
   block()[
     #fixed-width-text-justified(width: text-width, text-content)
+    #h(0.5em)
     #fixed-width-underline(width: underline-width, underline-content)
   ]
 }
@@ -28,6 +32,7 @@
 #let fixed-text-with-underline(text-width, underline-width, text-content, underline-content) = {
   block()[
     #fixed-width-text(width: text-width, text-content)
+    #h(0.5em)
     #fixed-width-underline(width: underline-width, underline-content)
   ]
 }

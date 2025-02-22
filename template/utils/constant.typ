@@ -24,8 +24,8 @@
   小七: 5pt,
 )
 
-#let font = (宋体: ("Times New Roman", "SimSun"), 黑体: ("Times New Roman", "SimHei"))
-// #let font = (宋体: ("Times New Roman", "Source Han Serif SC"), 黑体: ("Times New Roman", "Source Han Sans SC"))
+// #let font = (宋体: ("Times New Roman", "SimSun"), 黑体: ("Times New Roman", "SimHei"))
+#let font = (宋体: ("Times New Roman", "Source Han Serif SC"), 黑体: ("Times New Roman", "Source Han Sans SC"))
 
 /*
   信息常量
@@ -55,9 +55,12 @@
   作者学院: "作者学院",
   作者学院英文: "作者学院英文",
   作者学位类型: "作者学位类型",
-  作者专业学位类型: "作者专业学位类型",
-  作者专业学位类型英文: "作者专业学位类型英文",
+  作者学科专业: "作者学科专业", // 学术型填写
+  作者学科专业英文: "作者学科专业英文", // 学术型填写
+  作者专业学位类别: "作者专业学位类别", // 专业型填写
+  作者专业学位类别英文: "作者专业学位类别英文", // 专业型填写
   申请学位级别: "申请学位级别",
+  学位类型: "学位类型",
   专业学位领域: "专业学位领域",
   // 学院信息
   学位授予单位: "学位授予单位",
@@ -105,9 +108,12 @@
   info-keys.作者学号: "123456789012",
   info-keys.作者学院: "计算机科学与工程学院 (网络空间安全学院)",
   info-keys.作者学院英文: "School of Computer Science and Engineering(School of Cyberspace Security)",
-  info-keys.作者专业学位类型: "计算机技术",
-  info-keys.作者专业学位类型英文: "Computer Science and Technology",
+  info-keys.作者专业学位类别: "计算机技术", // 专业型填写
+  info-keys.作者专业学位类别英文: "Computer Science and Technology", // 专业型填写
+  info-keys.作者学科专业: "电磁场与微波技术", // 学术型填写
+  info-keys.作者学科专业英文: "Electromagnetic Field and Microwave Technology", // 学术型填写
   info-keys.申请学位级别: "硕士",
+  info-keys.学位类型: "专业型",
   info-keys.专业学位领域: "通信工程",
   // 学院信息
   info-keys.学位授予单位: "电子科技大学",
@@ -152,8 +158,8 @@
     info.insert(info-keys.作者学号, "")
     info.insert(info-keys.作者学院, "")
     info.insert(info-keys.作者学院英文, "")
-    info.insert(info-keys.作者专业学位类型, "")
-    info.insert(info-keys.作者专业学位类型英文, "")
+    info.insert(info-keys.作者专业学位类别, "")
+    info.insert(info-keys.作者专业学位类别英文, "")
     info.insert(info-keys.申请学位级别, "")
     info.insert(info-keys.专业学位领域, "")
 

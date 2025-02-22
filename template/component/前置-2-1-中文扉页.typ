@@ -87,40 +87,99 @@
 
   #v(3em)
 
+  #let 论文提交以及答辩日期行 = grid(
+    columns: (1fr, 1fr),
+    justified-text-with-underline(6em, 12em, "论文提交时间", align(center, text(weight: "bold", info.at(info-keys.提交日期)))),
+    justified-text-with-underline(6em, 12em, "论文答辩日期", align(center, text(weight: "bold", info.at(info-keys.答辩日期)))),
+  )
+
+  #let 授予单位与日期行 = justified-text-with-underline(
+    9em,
+    28em,
+    "学位授予单位和日期",
+    align(center, text(weight: "bold", info.at(info-keys.学位授予单位) + "   " + info.at(info-keys.学位授予日期))),
+  )
+
+  #let 答辩委员会主席行 = justified-text-with-underline(7em, 30em, "答辩委员会主席", align(center, text(weight: "bold", info.at(info-keys.答辩委员会主席))))
+
+  #let 评阅人行 = justified-text-with-underline(
+    3em,
+    34em,
+    "评阅人",
+    align(center, text(weight: "bold", info.at(info-keys.答辩委员会成员).fold("", (prev, it) => { prev + it + "   " }))),
+  )
+
   #block(
     height: 150pt,
   )[
-    #set align(left)
-    #grid(
-      columns: (1fr),
-      rows: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    #if info.at(info-keys.学位类型) == "专业型" {
       grid(
-        inset: 0pt,
-        columns: (1fr, 1fr),
-        justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.申请学位级别)))),
-        justified-text-with-underline(6em, 12em, "专业学位类别", align(center, text(weight: "bold", info.at(info-keys.作者专业学位类型)))),
-      ),
-      justified-text-with-underline(6em, 31em, "专业学位领域", align(center, text(weight: "bold", info.at(info-keys.专业学位领域)))),
+        columns: (1fr),
+        rows: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+        grid(
+          inset: 0pt,
+          columns: (1fr, 1fr),
+          justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.申请学位级别)))),
+          justified-text-with-underline(6em, 12em, "专业学位类别", align(center, text(weight: "bold", info.at(info-keys.作者专业学位类别)))),
+        ),
+        justified-text-with-underline(6em, 31em, "专业学位领域", align(center, text(weight: "bold", info.at(info-keys.专业学位领域)))),
+        论文提交以及答辩日期行,
+        授予单位与日期行,
+        答辩委员会主席行,
+        评阅人行,
+      )
+    } else if info.at(info-keys.学位类型) == "学术型" {
       grid(
-        columns: (1fr, 1fr),
-        justified-text-with-underline(6em, 12em, "论文提交时间", align(center, text(weight: "bold", info.at(info-keys.提交日期)))),
-        justified-text-with-underline(6em, 12em, "论文答辩日期", align(center, text(weight: "bold", info.at(info-keys.答辩日期)))),
-      ),
-      justified-text-with-underline(
-        9em,
-        28em,
-        "学位授予单位和日期",
-        align(center, text(weight: "bold", info.at(info-keys.学位授予单位) + "   " + info.at(info-keys.学位授予日期))),
-      ),
-      justified-text-with-underline(7em, 30em, "答辩委员会主席", align(center, text(weight: "bold", info.at(info-keys.答辩委员会主席)))),
-      justified-text-with-underline(
-        3em,
-        34em,
-        "评阅人",
-        align(center, text(weight: "bold", info.at(info-keys.答辩委员会成员).fold("", (prev, it) => { prev + it + "   " }))),
-      ),
-    )
+        columns: (1fr),
+        rows: (1fr, 1fr, 1fr, 1fr, 1fr),
+        grid(
+          inset: 0pt,
+          columns: (1fr, 1fr),
+          justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.申请学位级别)))),
+          justified-text-with-underline(4em, 12em, "学科专业", align(center, text(weight: "bold", info.at(info-keys.作者学科专业)))),
+        ),
+        论文提交以及答辩日期行,
+        授予单位与日期行,
+        答辩委员会主席行,
+        评阅人行,
+      )
+    }
   ]
+
+  // #block(
+  //   height: 150pt,
+  // )[
+  //   #set align(left)
+  //   #grid(
+  //     columns: (1fr),
+  //     rows: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  //     grid(
+  //       inset: 0pt,
+  //       columns: (1fr, 1fr),
+  //       justified-text-with-underline(6em, 12em, "申请学位级别", align(center, text(weight: "bold", info.at(info-keys.申请学位级别)))),
+  //       justified-text-with-underline(6em, 12em, "专业学位类别", align(center, text(weight: "bold", info.at(info-keys.作者专业学位类别)))),
+  //     ),
+  //     justified-text-with-underline(6em, 31em, "专业学位领域", align(center, text(weight: "bold", info.at(info-keys.专业学位领域)))),
+  //     grid(
+  //       columns: (1fr, 1fr),
+  //       justified-text-with-underline(6em, 12em, "论文提交时间", align(center, text(weight: "bold", info.at(info-keys.提交日期)))),
+  //       justified-text-with-underline(6em, 12em, "论文答辩日期", align(center, text(weight: "bold", info.at(info-keys.答辩日期)))),
+  //     ),
+  //     justified-text-with-underline(
+  //       9em,
+  //       28em,
+  //       "学位授予单位和日期",
+  //       align(center, text(weight: "bold", info.at(info-keys.学位授予单位) + "   " + info.at(info-keys.学位授予日期))),
+  //     ),
+  //     justified-text-with-underline(7em, 30em, "答辩委员会主席", align(center, text(weight: "bold", info.at(info-keys.答辩委员会主席)))),
+  //     justified-text-with-underline(
+  //       3em,
+  //       34em,
+  //       "评阅人",
+  //       align(center, text(weight: "bold", info.at(info-keys.答辩委员会成员).fold("", (prev, it) => { prev + it + "   " }))),
+  //     ),
+  //   )
+  // ]
 
   #v(2em)
 
