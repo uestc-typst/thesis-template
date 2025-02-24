@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 
 #let 致谢(info: (:)) = [
   #if (info.at(info-keys.匿名)) {

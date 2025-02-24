@@ -1,4 +1,4 @@
-#import "constant.typ":*
+#import "info.typ":*
 #import "font.typ":*
 
 #let set-footnote(body) = {

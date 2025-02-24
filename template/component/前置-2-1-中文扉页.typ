@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 #import "../tools/lib.typ":*
 
 #let 中文扉页(info: (:)) = [

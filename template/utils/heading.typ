@@ -1,5 +1,5 @@
 #import "../tools/lib.typ":*
-#import "constant.typ":*
+#import "info.typ":*
 #import "font.typ":*
 
 #let supplement-中文摘要 = "中文摘要"
@@ -13,7 +13,7 @@
 #let set-global-heading(info, body) = {
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    set text(size: font-size.小三, font: 获取黑体(info))
+    set text(size: font-size.小三, font: get-hei-font(info))
     set align(center)
     v(24pt)
     it
@@ -22,7 +22,7 @@
 
   show heading.where(level: 2): it => {
     set align(left)
-    set text(size: font-size.四号, font: 获取黑体(info))
+    set text(size: font-size.四号, font: get-hei-font(info))
     v(18pt)
     it
     v(6pt)
@@ -30,7 +30,7 @@
 
   show heading.where(level: 3): it => {
     set align(left)
-    set text(size: font-size.四号, font: 获取黑体(info))
+    set text(size: font-size.四号, font: get-hei-font(info))
     v(12pt)
     it
     v(6pt)
@@ -38,7 +38,7 @@
 
   show heading.where(level: 4): it => {
     set align(left)
-    set text(size: font-size.小四, font: 获取黑体(info))
+    set text(size: font-size.小四, font: get-hei-font(info))
     v(12pt)
     it
     v(6pt)

@@ -1,5 +1,5 @@
-#import "../utils/lib.typ": *
-#import "../tools/lib.typ":*
+#import "../consts.typ": *
+#import "../utils/lib.typ":*
 
 #let 参考文献(info: (:)) = [
   #if info.at(info-keys.参考文献) == none {

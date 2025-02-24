@@ -1,4 +1,5 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
+#import "../utils/lib.typ":*
 #import "../tools/lib.typ":*
 
 #let 英文扉页(info: (:)) = [
@@ -14,7 +15,7 @@
 
   #block()[
     #set align(center)
-    #set text(font: 获取黑体(info), size: font-size.小二, weight: "bold")
+    #set text(font: get-hei-font(info), size: font-size.小二, weight: "bold")
     #info.at(info-keys.论文英文标题)
   ]
 
@@ -22,7 +23,7 @@
 
   #block()[
     #set align(center)
-    #set text(font: 获取黑体(info), size: font-size.小三)
+    #set text(font: get-hei-font(info), size: font-size.小三)
     #if info.at(info-keys.申请学位级别) == "硕士" {
       text("A Master Thesis Submitted to \n University of Electronic Science and Technology of China")
     } else if info.at(info-keys.申请学位级别) == "博士" {

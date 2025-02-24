@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 
 #let 目录(info: (:)) = [
   #set align(center)

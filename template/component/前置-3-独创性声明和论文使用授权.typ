@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 #import "../tools/lib.typ":*
 
 #let 独创性声明和论文使用授权(info: (:)) = [

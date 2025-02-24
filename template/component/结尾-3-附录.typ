@@ -1,5 +1,4 @@
-#import "../utils/lib.typ": *
-#import "../tools/lib.typ": *
+#import "../consts.typ": *
 
 #let 附录(info: (:)) = [
   #if info.at(info-keys.附录) == none {

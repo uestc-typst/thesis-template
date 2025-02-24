@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 
 #let abstruct-template(info, title, abstruct, keywords-title, keywords-split-char, keywords) = {
   heading(title)

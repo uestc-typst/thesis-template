@@ -1,4 +1,4 @@
-#import "constant.typ":*
+#import "info.typ":*
 #import "font.typ":*
 
 #let footer-罗马数字页码 = context{

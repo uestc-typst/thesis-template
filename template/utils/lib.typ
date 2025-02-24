@@ -1,6 +1,6 @@
-#import "constant.typ": info-keys, info-kv, info-keys-private, info-check
+#import "info.typ": info-default-kv, info-check
 
-#import "font.typ": font-size, 获取宋体, 获取黑体, 获取等宽字体
+#import "font.typ": get-song-font, get-hei-font, get-mono-font
 
 #import "common.typ": common-set
 

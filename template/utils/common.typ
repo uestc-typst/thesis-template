@@ -1,4 +1,4 @@
-#import "constant.typ":*
+#import "info.typ":*
 #import "font.typ":*
 
 // 字体 段落 加粗信息等设置

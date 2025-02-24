@@ -1,4 +1,4 @@
-#import "../utils/lib.typ": *
+#import "../consts.typ": *
 #import "../tools/lib.typ":*
 
 #let 封面(info: (:)) = [
@@ -81,7 +81,7 @@
     #set text(size: font-size.三号, weight: "bold")
     #if info.at(info-keys.学位类型) == "专业型" {
       justified-text-with-underline(4em, 16em, box(width: 6em, scale(x: 66.6%, "专业学位类型")), info.at(info-keys.作者专业学位类别))
-    } else if info.at(info-keys.学位类型) == "学术型"{
+    } else if info.at(info-keys.学位类型) == "学术型" {
       justified-text-with-underline(4em, 16em, "学位类型", info.at(info-keys.作者专业学位类别))
     }
     #justified-text-with-underline(4em, 16em, "学号", info.at(info-keys.作者学号))
