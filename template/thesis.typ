@@ -7,7 +7,7 @@
 
   let info = info-check(info: info)
 
-  show: show-cn-fakebold.with()
+  show: set-font.with(info)
   show: common-set.with(info)
   show: figure-env-set.with()
   show: set-global-heading.with(info)
