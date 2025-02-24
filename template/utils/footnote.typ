@@ -1,4 +1,5 @@
 #import "constant.typ":*
+#import "font.typ":*
 
 #let set-footnote(body) = {
   set footnote(numbering: "①")

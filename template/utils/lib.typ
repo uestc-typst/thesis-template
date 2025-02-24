@@ -1,4 +1,8 @@
-#import "constant.typ": font, font-size, info-keys, info-kv, info-check
+#import "constant.typ": info-keys, info-kv, info-keys-private, info-check
+
+#import "font.typ": font-size, 获取宋体, 获取黑体, 获取等宽字体
+
+#import "common.typ": common-set
 
 #import "footnote.typ": set-footnote
 

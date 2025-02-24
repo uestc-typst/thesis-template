@@ -1,32 +1,4 @@
 #import "../tools/lib.typ": *
-
-/*
-  有关字体定义
-*/
-
-#let font-size = (
-  初号: 42pt,
-  小初: 36pt,
-  一号: 26pt,
-  小一: 24pt,
-  二号: 22pt,
-  小二: 18pt,
-  三号: 16pt,
-  小三: 15pt,
-  四号: 14pt,
-  中四: 13pt,
-  小四: 12pt,
-  五号: 10.5pt,
-  小五: 9pt,
-  六号: 7.5pt,
-  小六: 6.5pt,
-  七号: 5.5pt,
-  小七: 5pt,
-)
-
-// #let font = (宋体: ("Times New Roman", "SimSun"), 黑体: ("Times New Roman", "SimHei"))
-#let font = (宋体: ("Times New Roman", "Source Han Serif SC"), 黑体: ("Times New Roman", "Source Han Sans SC"))
-
 /*
   信息常量
 */
@@ -40,15 +12,17 @@
 
 #let info-keys = (
   DEBUG: "DEBUG",
-  // 保密的真会使用这个模板么
-  // 没准, 因为完全离线! 更安全嘞
+  // 一些模板信息
+  宋体字体: "宋体字体",
+  黑体字体: "黑体字体",
+  等宽字体: "等宽字体",
+  加粗粗度: "加粗粗度",
+  // 封面参数
   分类号: "分类号",
   密级: "密级",
   UDC: "UDC",
-  // 论文基本信息
   论文中文标题: "论文中文标题",
   论文英文标题: "论文英文标题",
-  // 作者信息
   作者中文名: "作者中文名",
   作者英文名: "作者英文名",
   作者学号: "作者学号",
@@ -94,8 +68,16 @@
   攻读学位期间取得成果: "攻读学位期间取得成果",
 )
 
+#let info-keys-private = (字体: "字体")
+
 #let info-kv = (
   info-keys.DEBUG: false,
+  // 模板参数
+  info-keys.宋体字体: "SimSun",
+  info-keys.黑体字体: "SimHei",
+  info-keys.等宽字体: "",
+  info-keys.加粗粗度: 500,
+  // 封面参数
   info-keys.分类号: "TP309.2",
   info-keys.密级: "公开",
   info-keys.UDC: "004.78",
@@ -147,11 +129,26 @@
   info-keys.攻读学位期间取得成果: none,
 )
 
+#let set-font-info(宋体字体: "", 黑体字体: "", 等宽字体: "") = {
+  return (
+    宋体: ("Times New Roman", (name: 宋体字体, covers: "latin-in-cjk")),
+    黑体: ("Times New Roman", (name: 黑体字体, covers: "latin-in-cjk")),
+    等宽: ("Times New Roman", (name: 等宽字体, covers: "latin-in-cjk")),
+  )
+}
+
 #let info-check(info: (:)) = {
   let info = info
   for (key, value) in info-kv.pairs() {
     info = check-and-insert(info, key, value)
   }
+
+  info.insert(info-keys-private.字体, set-font-info(
+    宋体字体: info.at(info-keys.宋体字体),
+    黑体字体: info.at(info-keys.黑体字体),
+    等宽字体: info.at(info-keys.等宽字体),
+  ))
+
   if info.at(info-keys.匿名) {
     info.insert(info-keys.作者中文名, "")
     info.insert(info-keys.作者英文名, "")
