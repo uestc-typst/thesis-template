@@ -1,4 +1,6 @@
-// references: https://github.com/nju-lug/modern-nju-thesis/issues/3
+// ref: https://github.com/nju-lug/modern-nju-thesis/issues/3
+// ref: https://github.com/TideDra/seu-thesis-typst 
+// ref: https://github.com/citation-style-language/styles/blob/master/china-national-standard-gb-t-7714-2015-numeric.csl
 // Author: csimide, OrangeX4
 // Tested only on GB-7714-2015-Numeric
 #let bilingual-bibliography(
