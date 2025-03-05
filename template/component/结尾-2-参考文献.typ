@@ -8,7 +8,7 @@
 
   #set pagebreak(weak: true)
 
-  #let prefix-path = "../../../../"
+  #let prefix-path = "../../../"
   #let bibs = info.at(info-keys.参考文献)
   #let path = if type(bibs) == str {
     prefix-path + bibs
@@ -16,5 +16,5 @@
     bibs = bibs.map((item) => { prefix-path + item })
   }
 
-  #bilingual-bibliography(body: bibs, full: true)
+  #bilingual-bibliography(body: path, full: true)
 ]
