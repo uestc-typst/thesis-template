@@ -5,38 +5,33 @@
 #let figure-env-set(body) = {
   set block(breakable: true)
 
+  show figure.where(kind: figure-kind-tbl): set figure.caption(position: top)
+
+  // 显示的前后边距
+  let figure-body(it) = {
+    v(1em) 
+    it
+    v(1.5em)
+  }
+
+  // 每一个图片或者表格 计数器++
+  // 图1-1 后变成图1-2
+  let count-step(kind) = {
+      let chapter-num = counter(heading.where(level: 1)).display()
+      counter(kind + str(chapter-num)).step()
+  }
+
   show figure: it => {
     set align(center)
     if it.kind == figure-kind-code {
-      v(1em)
-      it.body
-      it.supplement
-      " " + it.counter.display(it.numbering)
-      " " + it.caption.body
-      v(1.5em)
-
-      let chapter-num = counter(heading.where(level: 1)).display()
-      counter(figure-kind-code + str(chapter-num)).step()
+      figure-body(it)
+      count-step(figure-kind-code)
     } else if it.kind == figure-kind-pic {
-      v(1em)
-      it.body
-      it.supplement
-      " " + it.counter.display(it.numbering)
-      " " + it.caption.body
-      v(1.5em)
-
-      let chapter-num = counter(heading.where(level: 1)).display()
-      counter(figure-kind-pic + str(chapter-num)).step()
+      figure-body(it)
+      count-step(figure-kind-pic)
     } else if it.kind == figure-kind-tbl {
-      v(1em)
-      it.body
-      it.supplement
-      " " + it.counter.display(it.numbering)
-      " " + it.caption.body
-      v(1.5em)
-
-      let chapter-num = counter(heading.where(level: 1)).display()
-      counter(figure-kind-tbl + str(chapter-num)).step()
+      figure-body(it)
+      count-step(figure-kind-tbl)
     } else {
       it.body
     }
