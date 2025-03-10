@@ -1,6 +1,7 @@
 #import "component/lib.typ": *
 #import "utils/lib.typ": *
 #import "tools/lib.typ":*
+#import "consts.typ":*
 
 #let thesis(info: (:), body) = {
   assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0, 当前版本为: " + str(sys.version))
@@ -41,9 +42,11 @@
   show:set-正文-page.with()
   正文(info: info, body)
 
-  show: set-致谢-heading.with()
-  show:set-致谢-page.with()
-  致谢(info: info)
+  if not info.at(info-keys.匿名) {
+    show: set-致谢-heading.with()
+    show:set-致谢-page.with()
+    致谢(info: info)
+  }
 
   show: set-参考文献-heading.with()
   show: set-参考文献-page.with()
