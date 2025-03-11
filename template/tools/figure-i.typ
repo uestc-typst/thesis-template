@@ -1,3 +1,4 @@
+#import "../consts.typ":*
 #let figure-kind-code = "figure-kind-code"
 #let figure-kind-pic = "figure-kind-pic"
 #let figure-kind-tbl = "figure-kind-tbl"
@@ -6,10 +7,11 @@
   set block(breakable: true)
 
   show figure.where(kind: figure-kind-tbl): set figure.caption(position: top)
+  show figure.caption: set text(size: font-size.五号)
   // 利用 box 的自动伸缩来实现
   // 只有一行的时候居中
   // 多行左对齐
-  show figure.caption: it => box(align(left, it))
+  show figure.caption: it => box(box(align(left, it)), width: 80%)
 
   // 显示的前后边距
   let figure-body(it) = {
