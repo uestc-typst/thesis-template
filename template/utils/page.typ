@@ -41,9 +41,8 @@
     inset: 0pt,
     height: 90%,
   )[
+    #set text(size: font-size.五号)
     #if calc.even(here().page()) {
-      "电子科技大学硕士学位论文"
-    } else {
       let is-heading-1-page = false
       let h = query(heading.where(level: 1).after(here())).filter(h => { h.location().page() == here().page() }).at(0, default: none)
       if h != none {
@@ -70,6 +69,8 @@
           numbering(num, cnt) + " " + title-body
         }
       }
+    } else {
+      "电子科技大学硕士学位论文"
     }
   ]
   block(inset: 0pt)[
