@@ -16,5 +16,6 @@
     bibs = bibs.map((item) => { prefix-path + item })
   }
 
+  #set text(size: font-size.五号)
   #bilingual-bibliography(body: path, full: true)
 ]
