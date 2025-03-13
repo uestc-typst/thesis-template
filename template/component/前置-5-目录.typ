@@ -19,7 +19,7 @@
     box(grid(
       columns: (auto, 1fr, auto),
       link(it.element.location())[
-        #text(weight: "bold")[ #title-with-num ]
+        #text(weight: "bold", font:info.at(info-keys.黑体字体))[ #title-with-num ]
       ],
       it.fill,
       it.page(),
