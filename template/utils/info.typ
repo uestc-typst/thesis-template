@@ -106,7 +106,7 @@
     info.insert(info-keys.作者学院英文, "")
     info.insert(info-keys.作者专业学位类别, "")
     info.insert(info-keys.作者专业学位类别英文, "")
-    info.insert(info-keys.申请学位级别, "")
+    // info.insert(info-keys.申请学位级别, "")
     info.insert(info-keys.专业学位领域, "")
 
     info.insert(info-keys.指导老师中文名, "")

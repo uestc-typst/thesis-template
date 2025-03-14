@@ -9,6 +9,7 @@
 #let supplement-致谢 = "致谢"
 #let supplement-附录 = "附录"
 #let supplement-参考文献 = "参考文献"
+#let supplement-攻读学位期间取得成果 = "攻读学位期间取得成果"
 
 #let set-global-heading(info, body) = {
   show heading.where(level: 1): it => {
@@ -94,6 +95,11 @@
 }
 
 #let set-参考文献-heading(body) = {
+  set heading(supplement: supplement-参考文献, numbering: none, outlined: true)
+  body
+}
+
+#let set-攻读学位期间获取成果-heading(body) = {
   set heading(supplement: supplement-参考文献, numbering: none, outlined: true)
   body
 }

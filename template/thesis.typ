@@ -58,5 +58,7 @@
   show: set-附录-page.with()
   附录(info: info)
 
+  show: set-攻读学位期间获取成果-heading.with()
+  show: set-附录-page.with()
   攻读学位期间取得成果(info: info)
 }

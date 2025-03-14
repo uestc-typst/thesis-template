@@ -117,3 +117,5 @@
 #let set-附录-page(body) = set-正文-page(body)
 
 #let set-参考文献-page(body) = set-正文-page(body)
+
+#let set-攻读学位期间获取成果-page(body) = set-正文-page(body)

@@ -19,6 +19,7 @@
   set-致谢-heading,
   set-附录-heading,
   set-参考文献-heading,
+  set-攻读学位期间获取成果-heading,
 )
 
 #import "page.typ": (
@@ -30,5 +31,6 @@
   set-致谢-page,
   set-附录-page,
   set-参考文献-page,
+  set-攻读学位期间获取成果-page,
 )
 
