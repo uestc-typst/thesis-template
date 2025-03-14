@@ -42,11 +42,9 @@
   show:set-正文-page.with()
   正文(info: info, body)
 
-  if not info.at(info-keys.匿名) {
-    show: set-致谢-heading.with()
-    show:set-致谢-page.with()
-    致谢(info: info)
-  }
+  show: set-致谢-heading.with()
+  show:set-致谢-page.with()
+  致谢(info: info)
 
   show: set-参考文献-heading.with()
   show: set-参考文献-page.with()
