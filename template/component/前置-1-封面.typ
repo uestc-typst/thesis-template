@@ -9,6 +9,7 @@
 
   #block(height: 50pt, inset: 0pt)[
     #text(size: font-size.二号)[
+      #set text(size: font-size.一号, font: "STXingkai") if info.at(info-keys.申请学位级别) == "学士"
       电 子 科 技 大 学
       #linebreak()
     ]
@@ -38,6 +39,9 @@
       title-chinese = "专业学位博士学位论文"
       title-english = " DOCTORAL DISSERTATION FOR PROFESSIONAL DEGREE "
     }
+  } else if info.at(info-keys.申请学位级别) == "学士" {
+    title-chinese = "学士学位论文"
+    title-english = "BACHELOR THESIS "
   }
   #block(height: 70pt, inset: 0pt)[
     #text(size: font-size.初号)[#title-chinese]
@@ -79,6 +83,14 @@
   )[
 
     #set text(size: font-size.三号, weight: "bold")
+    #if info.at(info-keys.申请学位级别) == "学士" {
+      justified-text-with-underline(4em, 16em, "学院", info.at(info-keys.作者学院))
+      justified-text-with-underline(4em, 16em, "专业", info.at(info-keys.作者学科专业))
+      justified-text-with-underline(4em, 16em, "学号", info.at(info-keys.作者学号))
+      justified-text-with-underline(4em, 16em, "作者姓名", info.at(info-keys.作者中文名))
+      justified-text-with-underline(4em, 16em, "指导老师", info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文))
+      return
+    }
     #if info.at(info-keys.学位类型) == "专业型" {
       justified-text-with-underline(4em, 16em, box(width: 6em, scale(x: 66.6%, "专业学位类型")), info.at(info-keys.作者专业学位类别))
     } else if info.at(info-keys.学位类型) == "学术型" {

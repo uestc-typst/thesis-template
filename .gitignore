@@ -1,8 +1,9 @@
 *.pdf
 .DS_Store
 
-# 除了 SimHei / SimSun / TimesNewRoman 外，其他字体文件都忽略
+# 除了 SimHei / SimSun / STXingkai / TimesNewRoman 外，其他字体文件都忽略
 fonts/
 !SimHei.*
 !SimSun.*
+!STXingkai.*
 !TimesNewRoman*
