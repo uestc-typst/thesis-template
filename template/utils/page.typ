@@ -70,7 +70,7 @@
         }
       }
     } else {
-      "电子科技大学硕士学位论文"
+      "电子科技大学" + query(<学位>).first().value + "学位论文"
     }
   ]
   block(inset: 0pt)[

@@ -7,6 +7,8 @@
   assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0, 当前版本为: " + str(sys.version))
 
   let info = info-check(info: info)
+  let degree = info.at(info-keys.申请学位级别)
+  [#metadata(degree) <学位>]
 
   show: set-font.with(info)
   show: common-set.with(info)
@@ -16,9 +18,12 @@
   show: set-ref.with()
 
   封面(info: info)
-  中文扉页(info: info)
-  英文扉页(info: info)
-  独创性声明和论文使用授权(info: info)
+  if degree != "学士" {
+    // 学士论文不需要这三页
+    中文扉页(info: info)
+    英文扉页(info: info)
+    独创性声明和论文使用授权(info: info)
+  }
 
   // 此时到了摘要页，需要重置页码为 1
   counter(page).update(1)

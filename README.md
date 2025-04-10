@@ -45,8 +45,10 @@ Typst有以下优点：
     - 快了! 等模板稳定了！
 
 # 🔗 参考
-> [学校要求](https://gr.uestc.edu.cn/xiazai/114/3917)
-> 
+> [研究生学位论文](https://gr.uestc.edu.cn/xiazai/114/3917)
+>
+> [本科学位论文](https://www.jwc.uestc.edu.cn/upload/电子科技大学本科毕业设计（论文）管理办法（2018修订版）.pdf)
+>
 > [视觉形象识别系统](https://vi.uestc.edu.cn/)
 
 # 🎯 TODO
@@ -57,3 +59,8 @@ Typst有以下优点：
 
 # 📜 License
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+# 💖 贡献者们
+<a href="https://github.com/uestc-typst/thesis-template/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=uestc-typst/thesis-template" />
+</a>
