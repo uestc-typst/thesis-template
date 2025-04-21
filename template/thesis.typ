@@ -23,6 +23,8 @@
     中文扉页(info: info)
     英文扉页(info: info)
     独创性声明和论文使用授权(info: info)
+  } else {
+    pagebreak()
   }
 
   // 此时到了摘要页，需要重置页码为 1
