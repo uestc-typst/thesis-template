@@ -101,23 +101,23 @@
   )
 
   if info.at(info-keys.匿名) {
-    info.insert(info-keys.作者中文名, "")
-    info.insert(info-keys.作者英文名, "")
-    info.insert(info-keys.作者学号, "")
-    info.insert(info-keys.作者学院, "")
-    info.insert(info-keys.作者学院英文, "")
-    info.insert(info-keys.作者专业学位类别, "")
-    info.insert(info-keys.作者专业学位类别英文, "")
+    info.insert(info-keys.作者中文名, "*****   ")
+    info.insert(info-keys.作者英文名, "*****   ")
+    info.insert(info-keys.作者学号, "*****   ")
+    // info.insert(info-keys.作者学院, "*****")
+    // info.insert(info-keys.作者学院英文, "*****")
+    // info.insert(info-keys.作者专业学位类别, "*****")
+    // info.insert(info-keys.作者专业学位类别英文, "*****")
     // info.insert(info-keys.申请学位级别, "")
-    info.insert(info-keys.专业学位领域, "")
+    // info.insert(info-keys.专业学位领域, "*****")
 
-    info.insert(info-keys.指导老师中文名, "")
-    info.insert(info-keys.指导老师英文名, "")
+    info.insert(info-keys.指导老师中文名, "*****")
+    info.insert(info-keys.指导老师英文名, "*****")
     info.insert(info-keys.指导老师职称中文, "")
     info.insert(info-keys.指导老师职称英文, "")
-    info.insert(info-keys.指导老师单位, "")
-    info.insert(info-keys.合作导师中文名, "")
-    info.insert(info-keys.合作导师职称中文, "")
+    info.insert(info-keys.指导老师单位, "*****")
+    info.insert(info-keys.合作导师中文名, "***** ")
+    info.insert(info-keys.合作导师职称中文, "***** ")
   }
   return info
 }
