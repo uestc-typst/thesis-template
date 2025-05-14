@@ -45,12 +45,12 @@
 
   // 此时到了正文页，需要重置页码为 1
   counter(page).update(1)
-  show:set-正文-heading.with()
-  show:set-正文-page.with()
+  show: set-正文-heading.with()
+  show: set-正文-page.with()
   正文(info: info, body)
 
   show: set-致谢-heading.with()
-  show:set-致谢-page.with()
+  show: set-致谢-page.with()
   致谢(info: info)
 
   show: set-参考文献-heading.with()

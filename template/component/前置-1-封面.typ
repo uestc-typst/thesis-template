@@ -102,5 +102,5 @@
     #justified-text-with-underline(4em, 16em, "学院", info.at(info-keys.作者学院))
   ]
 
-  #pagebreak(weak: true)
+  #pagebreak(weak: true, to: "odd")
 ]

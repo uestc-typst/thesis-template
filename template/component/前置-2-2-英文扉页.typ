@@ -60,4 +60,6 @@
       fixed-text-with-underline(7em, 28em, align(right)[School], align(center, text(weight: "bold", info.at(info-keys.作者学院英文)))),
     )
   ]
+
+  #pagebreak(weak: true, to: "odd")
 ]

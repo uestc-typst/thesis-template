@@ -7,7 +7,6 @@
   info-keys.黑体字体: default-info.at(info-keys.黑体字体),
   info-keys.等宽字体: default-info.at(info-keys.等宽字体),
   info-keys.加粗粗度: 500,
-  info-keys.打印: true,
   info-keys.匿名: false,
   /*
     封面参数

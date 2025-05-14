@@ -33,5 +33,5 @@
     #align(right)[日期：#fixed-width-space(2em)年#fixed-width-space(2em)月#fixed-width-space(2em)日]
   ]
 
-  #pagebreak()
+  #pagebreak(weak: true, to: "odd")
 ]
