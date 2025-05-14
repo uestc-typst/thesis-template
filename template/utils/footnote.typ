@@ -1,10 +1,10 @@
-#import "info.typ":*
-#import "font.typ":*
+#import "info.typ": *
+#import "font.typ": *
 
 #let set-footnote(body) = {
   set footnote(numbering: "①")
   set footnote.entry(indent: 0em)
-  show footnote.entry:it => {
+  show footnote.entry: it => {
     set text(size: font-size.小五)
     set par(hanging-indent: 1.5em, first-line-indent: 0em)
     let loc = it.note.location()

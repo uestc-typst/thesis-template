@@ -1,5 +1,5 @@
-#import "info.typ":*
-#import "font.typ":*
+#import "info.typ": *
+#import "font.typ": *
 
 // 字体 段落 加粗信息等设置
 #let common-set(info, body) = {

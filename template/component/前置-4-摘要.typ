@@ -7,16 +7,21 @@
   h(-2em)
   if (keywords != none) {
     strong(keywords-title)
-    str(keywords.fold("", (str, item)=> {
-      if str == "" {
-        str + item
-      } else {
-        str + keywords-split-char + item
-      }
-    }))
+    str(
+      keywords.fold(
+        "",
+        (str, item) => {
+          if str == "" {
+            str + item
+          } else {
+            str + keywords-split-char + item
+          }
+        },
+      ),
+    )
   }
 
-  context{
+  context {
     if calc.odd(here().page()) {
       set page(header: none, footer: none, numbering: none)
       counter(page).update(n => n - 1)

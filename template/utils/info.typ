@@ -1,5 +1,5 @@
 #import "../consts.typ": *
-#import "../tools/lib.typ":*
+#import "../tools/lib.typ": *
 
 #let info-default-kv = (
   info-keys.DEBUG: false,
@@ -91,11 +91,14 @@
     info = check-and-insert(info, key, value)
   }
 
-  info.insert(info-keys-private.字体, set-font-info(
-    宋体字体: info.at(info-keys.宋体字体),
-    黑体字体: info.at(info-keys.黑体字体),
-    等宽字体: info.at(info-keys.等宽字体),
-  ))
+  info.insert(
+    info-keys-private.字体,
+    set-font-info(
+      宋体字体: info.at(info-keys.宋体字体),
+      黑体字体: info.at(info-keys.黑体字体),
+      等宽字体: info.at(info-keys.等宽字体),
+    ),
+  )
 
   if info.at(info-keys.匿名) {
     info.insert(info-keys.作者中文名, "")

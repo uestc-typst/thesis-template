@@ -1,18 +1,18 @@
-#import "info.typ":*
-#import "font.typ":*
+#import "info.typ": *
+#import "font.typ": *
 
-#let footer-罗马数字页码 = context{
+#let footer-罗马数字页码 = context {
   set align(center)
   set text(size: font-size.小五)
   counter(page).display("I")
 }
-#let footer-阿拉伯数字页码 = context{
+#let footer-阿拉伯数字页码 = context {
   set align(center)
   set text(size: font-size.小五)
   counter(page).display("1")
 }
 
-#let header-with-text(s) = context{
+#let header-with-text(s) = context {
   assert(type(s) == str)
   set align(center + bottom)
   set text(size: font-size.五号)
@@ -34,7 +34,7 @@
 
 #let header-目录 = header-with-text("目 录")
 
-#let header-正文 = context{
+#let header-正文 = context {
   set align(center + bottom)
   set text(size: font-size.小五)
   block(
@@ -44,7 +44,9 @@
     #set text(size: font-size.五号)
     #if calc.even(here().page()) {
       let is-heading-1-page = false
-      let h = query(heading.where(level: 1).after(here())).filter(h => { h.location().page() == here().page() }).at(0, default: none)
+      let h = query(heading.where(level: 1).after(here()))
+        .filter(h => { h.location().page() == here().page() })
+        .at(0, default: none)
       if h != none {
         is-heading-1-page = true
       } else {

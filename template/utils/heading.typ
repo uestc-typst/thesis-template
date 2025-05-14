@@ -1,6 +1,6 @@
-#import "../tools/lib.typ":*
-#import "info.typ":*
-#import "font.typ":*
+#import "../tools/lib.typ": *
+#import "info.typ": *
+#import "font.typ": *
 
 #let supplement-中文摘要 = "中文摘要"
 #let supplement-英文摘要 = "英文摘要"
@@ -65,14 +65,16 @@
 
 #let set-正文-heading(body) = {
   set heading(supplement: supplement-正文, outlined: true)
-  set heading(numbering: (..nums) => {
-    let n = nums.pos().len()
-    if n == 1 {
-      numbering("第一章", ..nums)
-    } else {
-      numbering("1.1.1", ..nums)
-    }
-  })
+  set heading(
+    numbering: (..nums) => {
+      let n = nums.pos().len()
+      if n == 1 {
+        numbering("第一章", ..nums)
+      } else {
+        numbering("1.1.1", ..nums)
+      }
+    },
+  )
   body
 }
 
@@ -83,14 +85,16 @@
 
 #let set-附录-heading(body) = {
   set heading(supplement: supplement-附录, outlined: true)
-  set heading(numbering: (..nums) => {
-    let n = nums.pos().len()
-    if n == 1 {
-      numbering("附录A", ..nums)
-    } else {
-      numbering("1.1.1", ..nums)
-    }
-  })
+  set heading(
+    numbering: (..nums) => {
+      let n = nums.pos().len()
+      if n == 1 {
+        numbering("附录A", ..nums)
+      } else {
+        numbering("1.1.1", ..nums)
+      }
+    },
+  )
   body
 }
 

@@ -1,4 +1,4 @@
-#import "info.typ":*
+#import "info.typ": *
 
 #let get-song-font(info) = {
   return info.at(info-keys-private.字体).宋体

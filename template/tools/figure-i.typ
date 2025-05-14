@@ -1,4 +1,4 @@
-#import "../consts.typ":*
+#import "../consts.typ": *
 #let figure-kind-code = "figure-kind-code"
 #let figure-kind-pic = "figure-kind-pic"
 #let figure-kind-tbl = "figure-kind-tbl"

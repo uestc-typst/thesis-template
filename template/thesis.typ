@@ -1,7 +1,7 @@
 #import "component/lib.typ": *
 #import "utils/lib.typ": *
-#import "tools/lib.typ":*
-#import "consts.typ":*
+#import "tools/lib.typ": *
+#import "consts.typ": *
 
 #let thesis(info: (:), body) = {
   assert(sys.version >= version(0, 13, 0), message: "本模板支持的最小版本为 0.13.0, 当前版本为: " + str(sys.version))

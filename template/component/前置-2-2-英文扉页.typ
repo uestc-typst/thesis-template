@@ -1,6 +1,6 @@
 #import "../consts.typ": *
-#import "../utils/lib.typ":*
-#import "../tools/lib.typ":*
+#import "../utils/lib.typ": *
+#import "../tools/lib.typ": *
 
 #let 英文扉页(info: (:)) = [
   // for debug
@@ -33,9 +33,7 @@
 
   #v(16em)
 
-  #block(
-    height: 140pt,
-  )[
+  #block(height: 140pt)[
     #set align(center)
     #let 学科名称 = if info.at(info-keys.学位类型) == "学术型" {
       info.at(info-keys.作者学科专业英文)
@@ -46,18 +44,36 @@
     }
 
     #grid(
-      columns: (1fr),
+      columns: 1fr,
       rows: (1fr, 1fr, 1fr, 1fr, 1fr),
       fixed-text-with-underline(7em, 28em, align(right)[Discipline], align(center, text(weight: "bold", 学科名称))),
-      fixed-text-with-underline(7em, 28em, align(right)[Student ID], align(center, text(weight: "bold", info.at(info-keys.作者学号)))),
-      fixed-text-with-underline(7em, 28em, align(right)[Author], align(center, text(weight: "bold", info.at(info-keys.作者英文名)))),
+      fixed-text-with-underline(
+        7em,
+        28em,
+        align(right)[Student ID],
+        align(center, text(weight: "bold", info.at(info-keys.作者学号))),
+      ),
+      fixed-text-with-underline(
+        7em,
+        28em,
+        align(right)[Author],
+        align(center, text(weight: "bold", info.at(info-keys.作者英文名))),
+      ),
       fixed-text-with-underline(
         7em,
         28em,
         align(right)[Supervisor],
-        align(center, text(weight: "bold", info.at(info-keys.指导老师英文名) + "  " + info.at(info-keys.指导老师职称英文))),
+        align(
+          center,
+          text(weight: "bold", info.at(info-keys.指导老师英文名) + "  " + info.at(info-keys.指导老师职称英文)),
+        ),
       ),
-      fixed-text-with-underline(7em, 28em, align(right)[School], align(center, text(weight: "bold", info.at(info-keys.作者学院英文)))),
+      fixed-text-with-underline(
+        7em,
+        28em,
+        align(right)[School],
+        align(center, text(weight: "bold", info.at(info-keys.作者学院英文))),
+      ),
     )
   ]
 

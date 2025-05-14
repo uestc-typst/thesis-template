@@ -1,5 +1,5 @@
 #import "../consts.typ": *
-#import "../tools/lib.typ":*
+#import "../tools/lib.typ": *
 
 #let 封面(info: (:)) = [
   // for debug
@@ -88,17 +88,32 @@
       justified-text-with-underline(4em, 16em, "专业", info.at(info-keys.作者学科专业))
       justified-text-with-underline(4em, 16em, "学号", info.at(info-keys.作者学号))
       justified-text-with-underline(4em, 16em, "作者姓名", info.at(info-keys.作者中文名))
-      justified-text-with-underline(4em, 16em, "指导老师", info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文))
+      justified-text-with-underline(
+        4em,
+        16em,
+        "指导老师",
+        info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文),
+      )
       return
     }
     #if info.at(info-keys.学位类型) == "专业型" {
-      justified-text-with-underline(4em, 16em, box(width: 6em, scale(x: 66.6%, "专业学位类型")), info.at(info-keys.作者专业学位类别))
+      justified-text-with-underline(
+        4em,
+        16em,
+        box(width: 6em, scale(x: 66.6%, "专业学位类型")),
+        info.at(info-keys.作者专业学位类别),
+      )
     } else if info.at(info-keys.学位类型) == "学术型" {
       justified-text-with-underline(4em, 16em, "学位类型", info.at(info-keys.作者专业学位类别))
     }
     #justified-text-with-underline(4em, 16em, "学号", info.at(info-keys.作者学号))
     #justified-text-with-underline(4em, 16em, "作者姓名", info.at(info-keys.作者中文名))
-    #justified-text-with-underline(4em, 16em, "指导老师", info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文))
+    #justified-text-with-underline(
+      4em,
+      16em,
+      "指导老师",
+      info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文),
+    )
     #justified-text-with-underline(4em, 16em, "学院", info.at(info-keys.作者学院))
   ]
 
