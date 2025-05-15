@@ -4,6 +4,10 @@
 
 参考例子以及构建开始点：[电子科技大学学位论文 Typst 例子](https://github.com/qujihan/uestc-typst-thesis-example)
 
+<strong>
+距作者所知，截止 2025/5/16, 已有 1 位硕士研究生使用该模板通过答辩, 5 位硕士研究生通过系统审核但未答辩.
+</strong>
+
 </samp>
 </strong>
 </div>
@@ -11,38 +15,32 @@
 
 # 📚 电子科技大学学位论文模板
 > [!CAUTION]
-> [Typst](https://typst.app/home/) 版本 >= `0.13.0`
+> 模板所需 [Typst](https://typst.app/home/) 版本 >= `0.13.0` (可以通过`typst --version`检查)
 > 
-> 安装Typst:
-> 
-> Rust用户: `cargo install typst-cli`
-> 
-> MacOS用户: `brew install typst`
-> 
-> Windows用户: `scoop install typst`
+> 安装Typst: [官网安装方式](https://github.com/typst/typst?tab=readme-ov-file#installation)
+
+<br></br>
 
 # 🎆 为什么使用 Typst?
 > [!IMPORTANT]  
-> 学校文件里并没有说明必须使用 Word/LaTex, 只要格式正确既可.
+> 学校文件里并没有说明必须使用 Word/LaTex, 只要格式正确既可. 且在所有流程中提交的**只是PDF**格式文件.
 > 
-> 引自学校要求:
+> 学校要求[参考链接](https://gr.uestc.edu.cn/xiazai/114/3917)
 > 
-> **发布学位论文撰写规范的主要目的是统一学位论文的最终呈现形式，对于要求格式的具体实现方式不作要求。同学们亦可根据自身情况，使用其他文字编辑软件，例如LaTeX、WPS等，遵照本规范所作要求，结合本文档示例，撰写学位论文，确保论文格式规范。**
+> 参考一只方橙([Github](https://github.com/OrangeX4))在知乎的[一篇回答](https://www.zhihu.com/question/591143170/answer/3304601296)
 
-Typst有以下优点：
-- 支持**增量**编译, 编译速度快.
-- 下载Typst极其依赖只需要**MB**级别的文件, 反观LaTex需要**GB**级别的文件.
-- 原生支持Unicode(UTF-8). 如果看一下模板代码就会发现, 模板文件名/函数名 甚至是中文. (这才是**现代**编程语言, Orz)
-- (个人项)Typst是一个有意思且语言, 而LaTeX...
+<br></br>
 
 # 🙋 FAQ
 - 我Clone后怎么使用？
     - 移步 [电子科技大学学位论文 Typst 例子](https://github.com/qujihan/uestc-typst-thesis-example), 这里有丰富的使用案例, 这里只是模板仓库. 
-    - 我遵循模板与内容分离的原则, 能多离就多离, 实在离不了那就给 Typst 提 issues!
 - 模板仓库为什么使用 git submodule?
     - 项目迭代速度快, submodule 更新方便.
-- Typst提供的网页编辑器可以使用么？
-    - 快了! 等模板稳定了！
+<br></br>
+
+# 🎯 TODO
+[TodoList](https://github.com/qujihan/uestc-thesis-typst-template/issues/2)
+<br></br>
 
 # 🔗 参考
 > [研究生学位论文](https://gr.uestc.edu.cn/xiazai/114/3917)
@@ -50,15 +48,15 @@ Typst有以下优点：
 > [本科学位论文](https://www.jwc.uestc.edu.cn/upload/电子科技大学本科毕业设计（论文）管理办法（2018修订版）.pdf)
 >
 > [视觉形象识别系统](https://vi.uestc.edu.cn/)
-
-# 🎯 TODO
-[TodoList](https://github.com/qujihan/uestc-thesis-typst-template/issues/2)
+<br></br>
 
 # 💬 微信交流群
-[欢迎加群讨论](https://github.com/qujihan/uestc-thesis-typst-template/issues/1)
+[欢迎加群讨论](https://github.com/uestc-typst/thesis-template/issues/1)
+<br></br>
 
 # 📜 License
-[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+[Apache License, Version 2.0](./LICENSE)
+<br></br>
 
 # 💖 贡献者们
 <a href="https://github.com/uestc-typst/thesis-template/graphs/contributors">
