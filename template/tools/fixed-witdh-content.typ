@@ -10,9 +10,10 @@
 // 占 width 的宽度画下划线, 其中包含一些字符
 // [     类似这样     ]
 //  _________________
-#let fixed-width-underline(width: auto, body) = box(
+#let fixed-width-underline(width: auto, height: auto, body) = box(
   body,
   width: width,
+  height: height,
   stroke: (bottom: 0.5pt),
   outset: (bottom: 0.3em),
 )

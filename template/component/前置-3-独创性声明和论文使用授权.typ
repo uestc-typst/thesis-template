@@ -8,12 +8,27 @@
   #set par(first-line-indent: 2em, justify: true, leading: 1.5em, linebreaks: "optimized", spacing: 2em)
   #set text(size: font-size.四号)
 
+  #let 作者签名 = [#fixed-width-underline(
+      width: 7em,
+      info.at(info-keys.作者电子签名, default: ""),
+    ) #fixed-width-space(2em)]
+
+  #let 导师签名 = [#fixed-width-underline(
+      width: 7em,
+      info.at(info-keys.导师电子签名, default: ""),
+    ) #fixed-width-space(2em)]
+
+  #let 日期 = info.at(
+    info-keys.独创性声明时间,
+    default: [#fixed-width-space(2em)年#fixed-width-space(2em)月#fixed-width-space(2em)日],
+  )
+
   #block()[
     #block(width: 100%, align(center, text(size: font-size.小二, weight: "bold")[独创性声明]))
 
     #h(2em)本人声明所呈交的学位论文是本人在导师指导下进行的研究工作及取得的研究成果。据我所知，除了文中特别加以标注和致谢的地方外，论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得电子科技大学或其它教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。
 
-    #align(right)[作者签名：#fixed-width-underline(width: 7em, "") #fixed-width-space(2em) 日期：#fixed-width-space(2em)年#fixed-width-space(2em)月#fixed-width-space(2em)日]
+    #align(right)[作者签名：#作者签名 日期：#日期]
   ]
 
   #v(2em)
@@ -23,8 +38,8 @@
 
     （涉密的学位论文须按照国家及学校相关规定管理，在解密后适用于本授权。）
 
-    #align(right)[作者签名：#fixed-width-underline(width: 7em, "") #fixed-width-space(2em) 导师签名：#fixed-width-underline(width: 7em, "")]
-    #align(right)[日期：#fixed-width-space(2em)年#fixed-width-space(2em)月#fixed-width-space(2em)日]
+    #align(right)[作者签名：#作者签名 导师签名：#导师签名]
+    #align(right)[日期：#日期]
   ]
 
   #pagebreak(weak: true, to: "odd")
