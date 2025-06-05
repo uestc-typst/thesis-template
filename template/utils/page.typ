@@ -12,102 +12,110 @@
   counter(page).display("1")
 }
 
-#let header-with-text(s) = context {
-  assert(type(s) == str)
+#let header-help-func(str) = context {
   set align(center + bottom)
   set text(size: font-size.五号)
+  set par(spacing: 0.4em, leading: 0.3em)
+  // block(inset: 0pt, height: 90%, stroke: red)[
   block(inset: 0pt, height: 90%)[
-    #text(s)
+    #text(str)
+    #line(length: 100%, stroke: 0.75pt)
   ]
-  block(inset: 0pt)[
-    #line(length: 100%, stroke: 0.5pt)
-  ]
-
   // 在Typst中默认footnote编号是连续的, 也就是第一页如果有1 2 3, 那么第二页就会从4开始
   // 学校要求每一页单独计数, 所以这里需要手动重置一下footnote编号
   counter(footnote).update(0)
 }
 
+#let header-with-text(s) = context {
+  assert(type(s) == str)
+  header-help-func(s)
+}
+
 #let header-中文摘要 = header-with-text("摘 要")
-
 #let header-英文摘要 = header-with-text("ABSTRACT")
-
 #let header-目录 = header-with-text("目 录")
-
 #let header-正文 = context {
-  set align(center + bottom)
-  set text(size: font-size.小五)
-  block(
-    inset: 0pt,
-    height: 90%,
-  )[
-    #set text(size: font-size.五号)
-    #if calc.even(here().page()) {
-      let is-heading-1-page = false
-      let h = query(heading.where(level: 1).after(here()))
-        .filter(h => { h.location().page() == here().page() })
-        .at(0, default: none)
-      if h != none {
-        is-heading-1-page = true
-      } else {
-        h = query(heading.where(level: 1).before(here())).at(-1, default: none)
-      }
-      if h != none {
-        let cnt = counter(heading).at(here()).at(0, default: 1)
-        if is-heading-1-page {
-          cnt = cnt + 1
-        }
-
-        let num = if h.numbering != none {
-          h.numbering
-        } else {
-          none
-        }
-
-        let title-body = h.body
-        if num == none {
-          title-body
-        } else {
-          numbering(num, cnt) + " " + title-body
-        }
-      }
+  let txt = "电子科技大学" + query(<学位>).first().value + "学位论文"
+  if calc.even(here().page()) {
+    let is-heading-1-page = false
+    let h = query(heading.where(level: 1).after(here()))
+      .filter(h => { h.location().page() == here().page() })
+      .at(0, default: none)
+    if h != none {
+      is-heading-1-page = true
     } else {
-      "电子科技大学" + query(<学位>).first().value + "学位论文"
+      h = query(heading.where(level: 1).before(here())).at(-1, default: none)
     }
-  ]
-  block(inset: 0pt)[
-    #line(length: 100%, stroke: 0.5pt)
-  ]
+    if h != none {
+      let cnt = counter(heading).at(here()).at(0, default: 1)
+      if is-heading-1-page {
+        cnt = cnt + 1
+      }
 
-  // 在Typst中默认footnote编号是连续的, 也就是第一页如果有1 2 3, 那么第二页就会从4开始
-  // 学校要求每一页单独计数, 所以这里需要手动重置一下footnote编号
-  counter(footnote).update(0)
+      let num = if h.numbering != none {
+        h.numbering
+      } else {
+        none
+      }
+
+      let title-body = h.body
+      if num == none {
+        txt = title-body
+      } else {
+        txt = numbering(num, cnt) + " " + title-body
+      }
+    }
+  }
+
+  header-help-func(txt)
 }
 
 #let header-致谢 = header-with-text("致 谢")
 
-#let set-global-page(body) = {
-  set page(paper: "a4", header: none, footer: none)
-  body
-}
+#let thesis-margin = (top: 30mm, bottom: 30mm)
+#let thesis-header-ascent = 20%
 
 #let set-中文摘要-page(body) = {
-  set page(header: header-中文摘要, footer: footer-罗马数字页码)
+  set page(
+    header: header-中文摘要,
+    header-ascent: thesis-header-ascent,
+    footer: footer-罗马数字页码,
+    paper: "a4",
+    margin: thesis-margin,
+  )
   body
 }
 
 #let set-英文摘要-page(body) = {
-  set page(header: header-英文摘要, footer: footer-罗马数字页码)
+  set page(
+    header: header-英文摘要,
+    header-ascent: thesis-header-ascent,
+    footer: footer-罗马数字页码,
+    paper: "a4",
+    margin: thesis-margin,
+  )
   body
 }
 
 #let set-目录-page(body) = {
-  set page(header: header-目录, footer: footer-罗马数字页码)
+  set page(
+    header: header-目录,
+    header-ascent: thesis-header-ascent,
+    footer: footer-罗马数字页码,
+    paper: "a4",
+    margin: thesis-margin,
+  )
   body
 }
 
 #let set-正文-page(body) = {
-  set page(header: header-正文, footer: footer-阿拉伯数字页码)
+  set page(
+    header: header-正文,
+    header-ascent: thesis-header-ascent,
+    footer: footer-阿拉伯数字页码,
+    paper: "a4",
+    margin: thesis-margin,
+  )
   body
 }
 

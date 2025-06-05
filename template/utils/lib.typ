@@ -23,7 +23,6 @@
 )
 
 #import "page.typ": (
-  set-global-page,
   set-中文摘要-page,
   set-英文摘要-page,
   set-目录-page,
