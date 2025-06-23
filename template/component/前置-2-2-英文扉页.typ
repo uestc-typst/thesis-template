@@ -65,7 +65,7 @@
         align(right)[Supervisor],
         align(
           center,
-          text(weight: "bold", info.at(info-keys.指导老师英文名) + "  " + info.at(info-keys.指导老师职称英文)),
+          text(weight: "bold", info.at(info-keys.指导老师职称英文) + "  " + info.at(info-keys.指导老师英文名)),
         ),
       ),
       fixed-text-with-underline(
