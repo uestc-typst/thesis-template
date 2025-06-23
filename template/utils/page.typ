@@ -36,7 +36,9 @@
 #let header-目录 = header-with-text("目 录")
 #let header-正文 = context {
   let txt = "电子科技大学" + query(<学位>).first().value + "学位论文"
-  if calc.even(here().page()) {
+  let body-page = counter(page).get().at(0, default: 0)
+  // 奇数页为内容
+  if calc.odd(body-page) {
     let is-heading-1-page = false
     let h = query(heading.where(level: 1).after(here()))
       .filter(h => { h.location().page() == here().page() })
