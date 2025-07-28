@@ -8,6 +8,7 @@
   info-keys.等宽字体: default-info.at(info-keys.等宽字体),
   info-keys.加粗粗度: 500,
   info-keys.匿名: false,
+  info-keys.打印模式: false,
   /*
     封面参数
   */

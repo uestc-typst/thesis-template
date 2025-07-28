@@ -77,5 +77,8 @@
     )
   ]
 
-  #pagebreak(weak: true, to: "odd")
+  #pagebreak(weak: true)
+  #if info.at(info-keys.打印模式) {
+    pagebreak(weak: true, to: "odd")
+  }
 ]

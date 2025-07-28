@@ -25,7 +25,6 @@
     if calc.odd(here().page()) {
       set page(header: none, footer: none, numbering: none)
       counter(page).update(n => n - 1)
-      pagebreak(weak: true, to: "odd")
     }
   }
 }

@@ -237,6 +237,8 @@
     #set align(left)
     #text(size: font-size.五号)[注1:注明《国际十进分类法UDC》的类号。]
   ]
-
-  #pagebreak(weak: true, to: "odd")
+  #pagebreak(weak: true)
+  #if info.at(info-keys.打印模式) {
+    pagebreak(weak: true, to: "odd")
+  }
 ]
