@@ -114,7 +114,7 @@
     // info.insert(info-keys.专业学位领域, "*****")
 
     info.insert(info-keys.指导老师中文名, "*****")
-    info.insert(info-keys.指导老师英文名, "*****  ")
+    info.insert(info-keys.指导老师英文名, "*****")
     info.insert(info-keys.指导老师职称中文, "")
     info.insert(info-keys.指导老师职称英文, "")
     info.insert(info-keys.指导老师单位, "*****")
