@@ -59,6 +59,10 @@
 
   #block(height: 60pt)[
     #block()[
+      #let text-to-display = info.at(info-keys.指导老师中文名)
+      #if info.at(info-keys.指导老师职称中文) != "" {
+        text-to-display = text-to-display + "   " + info.at(info-keys.指导老师职称中文)
+      }
       #grid(
         rows: (1fr, 1fr, 1fr),
         justified-text-with-underline(
@@ -67,7 +71,7 @@
           "指导老师",
           align(
             center,
-            text(weight: "bold", info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文)),
+            text(weight: "bold", text-to-display),
           ),
         ),
         justified-text-with-underline(
