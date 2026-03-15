@@ -5,22 +5,21 @@
   abstract
   if (keywords != none) {
     par[
-    #linebreak()
-    #strong(keywords-title)
-    #str(
-      keywords.fold(
-        "",
-        (str, item) => {
-          if str == "" {
-            str + item
-          } else {
-            str + keywords-split-char + item
-          }
-        },
-      ),
-    )]
+      #linebreak()
+      #strong(keywords-title)
+      #str(
+        keywords.fold(
+          "",
+          (str, item) => {
+            if str == "" {
+              str + item
+            } else {
+              str + keywords-split-char + item
+            }
+          },
+        ),
+      )]
   }
-
 }
 
 #let 中文摘要(info: (:)) = [
@@ -30,6 +29,18 @@
     return
   }
   #abstract-template(info, "摘要", abstract, "关键词：", "，", keywords)
+  #pagebreak(weak: true)
+  #if info.at(info-keys.打印模式) {
+    context {
+      let current-page = here().page()
+      if calc.even(current-page) {
+        page(header: none, footer: none)[
+          #v(1fr)
+          #counter(page).update(n => n - 1)
+        ]
+      }
+    }
+  }
 ]
 
 #let 英文摘要(info: (:)) = [
@@ -41,4 +52,16 @@
   }
 
   #abstract-template(info, "ABSTRACT", abstract, "Keywords: ", ", ", keywords)
+  #pagebreak(weak: true)
+  #if info.at(info-keys.打印模式) {
+    context {
+      let current-page = here().page()
+      if calc.even(current-page) {
+        page(header: none, footer: none)[
+          #v(1fr)
+          #counter(page).update(n => n - 1)
+        ]
+      }
+    }
+  }
 ]

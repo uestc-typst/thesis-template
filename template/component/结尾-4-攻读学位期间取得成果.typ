@@ -46,7 +46,7 @@
     achievement-list(
       path,
       title: title,
-      highlight-names: "Kong F",
+      highlight-names: info.at(info-keys.成果列表).at(成果列表-keys.作者姓名),
       // 2. 核心数据列表：(BibKey, 作者顺序, 注释)
       // 顺序非常重要！列表显示的顺序将严格按照这里写的顺序排列
       items: info.at(info-keys.成果列表).at(成果列表-keys.条目),
