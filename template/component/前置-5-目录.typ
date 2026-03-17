@@ -21,6 +21,9 @@
       gap: 0.5em,
     )
   }
+
+  #show cite: none
+
   #heading("目 录")
   #outline(title: none, depth: 4, indent: 2em)
 

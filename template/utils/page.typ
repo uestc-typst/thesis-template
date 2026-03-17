@@ -44,7 +44,9 @@
   if calc.odd(body-page) {
     // txt = hydra(1, skip-starting: false, use-last: true)
     let is-heading-1-page = false
-    let h = query(heading.where(level: 1).after(here())).filter(h => { h.location().page() == here().page() }).at(0, default: none)
+    let h = query(heading.where(level: 1).after(here()))
+      .filter(h => { h.location().page() == here().page() })
+      .at(0, default: none)
     if h != none {
       is-heading-1-page = true
     } else {
@@ -76,7 +78,14 @@
 #let header-致谢 = header-with-text("致 谢")
 
 #let set-global-page(body) = {
-  set page(paper: "a4", header: none, footer: none, margin: (top: 3cm, right: 3cm, bottom: 3cm, left: 3cm), header-ascent: 1cm - font-size.小五 - 4.5pt, footer-descent: 1cm - font-size.小五)
+  set page(
+    paper: "a4",
+    header: none,
+    footer: none,
+    margin: (top: 3cm, right: 3cm, bottom: 3cm, left: 3cm),
+    header-ascent: 1cm - font-size.小五 - 4.5pt,
+    footer-descent: 1cm - font-size.小五,
+  )
   body
 }
 

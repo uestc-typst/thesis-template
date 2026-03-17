@@ -48,6 +48,7 @@
       )
     ]
   }
+  #show cite: none
   #outline(
     title: "插图清单",
     target: figure.where(kind: figure-kind-pic),
