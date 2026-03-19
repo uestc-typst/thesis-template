@@ -118,8 +118,9 @@
     info.insert(info-keys.指导老师职称中文, "")
     info.insert(info-keys.指导老师职称英文, "")
     info.insert(info-keys.指导老师单位, "*****")
-    info.insert(info-keys.合作导师中文名, "***** ")
-    info.insert(info-keys.合作导师职称中文, "***** ")
+    info.insert(info-keys.合作导师中文名, "*****")
+    info.insert(info-keys.合作导师职称中文, "")
+    info.insert(info-keys.合作导师单位, "*****")
   }
   return info
 }

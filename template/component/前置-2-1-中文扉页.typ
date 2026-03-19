@@ -42,7 +42,11 @@
     ]
   ]
 
-  #v(3em)
+  #let shrink = 0em
+  #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
+    shrink = 1.5em
+  }
+  #v(3em - shrink)
 
   #block(height: auto)[
     #block()[
@@ -55,46 +59,87 @@
     ]
   ]
 
-  #v(3em)
+  #v(3em - shrink)
 
-  #block(height: 60pt)[
+  #let height_name_block = 60pt
+  #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
+    height_name_block = 120pt
+  } else {}
+
+  #block(height: height_name_block)[
     #block()[
-      #let text-to-display = info.at(info-keys.指导老师中文名)
+      #let adviser-text-to-display = info.at(info-keys.指导老师中文名)
+      #let collabrator-text-to-display = info.at(info-keys.合作导师中文名)
       #if info.at(info-keys.指导老师职称中文) != "" {
-        text-to-display = text-to-display + "   " + info.at(info-keys.指导老师职称中文)
+        adviser-text-to-display = adviser-text-to-display + "   " + info.at(info-keys.指导老师职称中文)
       }
-      #grid(
-        rows: (1fr, 1fr, 1fr),
-        justified-text-with-underline(
-          4em,
-          18em,
-          "指导老师",
-          align(
-            center,
-            text(weight: "bold", text-to-display),
+      #if info.at(info-keys.合作导师职称中文) != "" {
+        collabrator-text-to-display = collabrator-text-to-display + "   " + info.at(info-keys.合作导师职称中文)
+      }
+      #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
+        grid(
+          rows: (1fr, 1fr, 1fr, 1fr),
+          justified-text-with-underline(
+            4em,
+            18em,
+            "指导老师",
+            align(
+              center,
+              text(weight: "bold", adviser-text-to-display),
+            ),
           ),
-        ),
-        justified-text-with-underline(
-          4em,
-          18em,
-          "",
-          align(center, text(weight: "bold", info.at(info-keys.指导老师单位))),
-        ),
-        // justified-text-with-underline(
-        //   4em,
-        //   18em,
-        //   "合作导师",
-        //   align(
-        //     center,
-        //     text(weight: "bold", info.at(info-keys.合作导师中文名) + "   " + info.at(info-keys.合作导师职称中文)),
-        //   ),
-        // ),
-        block()[
-          #set text(size: font-size.小四)
-          #fixed-width-text-justified(width: 4em, "")
-          #fixed-width-text(width: 18em, align(center)[（姓名、职称、单位名称）])
-        ],
-      )
+          justified-text-with-underline(
+            4em,
+            18em,
+            "",
+            align(center, text(weight: "bold", info.at(info-keys.指导老师单位))),
+          ),
+          justified-text-with-underline(
+            4em,
+            18em,
+            "合作导师",
+            align(
+              center,
+              text(weight: "bold", collabrator-text-to-display),
+            ),
+          ),
+          justified-text-with-underline(
+            4em,
+            18em,
+            "",
+            align(center, text(weight: "bold", info.at(info-keys.合作导师单位))),
+          ),
+          block()[
+            #set text(size: font-size.小四)
+            #fixed-width-text-justified(width: 4em, "")
+            #fixed-width-text(width: 18em, align(center)[（姓名、职称、单位名称）])
+          ],
+        )
+      } else {
+        grid(
+          rows: (1fr, 1fr, 1fr),
+          justified-text-with-underline(
+            4em,
+            18em,
+            "指导老师",
+            align(
+              center,
+              text(weight: "bold", adviser-text-to-display),
+            ),
+          ),
+          justified-text-with-underline(
+            4em,
+            18em,
+            "",
+            align(center, text(weight: "bold", info.at(info-keys.指导老师单位))),
+          ),
+          block()[
+            #set text(size: font-size.小四)
+            #fixed-width-text-justified(width: 4em, "")
+            #fixed-width-text(width: 18em, align(center)[（姓名、职称、单位名称）])
+          ],
+        )
+      }
     ]
   ]
 
@@ -235,7 +280,7 @@
   //   )
   // ]
 
-  #v(2em)
+  #v(2em - shrink)
 
   #block(width: 100%)[
     #set align(left)
