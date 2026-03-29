@@ -76,7 +76,6 @@
   info-keys.英文摘要: none,
   info-keys.英文摘要关键字: none,
   info-keys.攻读学位期间取得成果: none,
-
   info-keys.浮动表图标题页置底: true,
 )
 
@@ -104,9 +103,9 @@
   )
 
   if info.at(info-keys.匿名) {
-    info.insert(info-keys.作者中文名, "*****   ")
-    info.insert(info-keys.作者英文名, "*****   ")
-    info.insert(info-keys.作者学号, "*****   ")
+    info.insert(info-keys.作者中文名, "*****")
+    info.insert(info-keys.作者英文名, "*****")
+    info.insert(info-keys.作者学号, "*****")
     // info.insert(info-keys.作者学院, "*****")
     // info.insert(info-keys.作者学院英文, "*****")
     // info.insert(info-keys.作者专业学位类别, "*****")
@@ -119,8 +118,9 @@
     info.insert(info-keys.指导老师职称中文, "")
     info.insert(info-keys.指导老师职称英文, "")
     info.insert(info-keys.指导老师单位, "*****")
-    info.insert(info-keys.合作导师中文名, "***** ")
-    info.insert(info-keys.合作导师职称中文, "***** ")
+    info.insert(info-keys.合作导师中文名, "*****")
+    info.insert(info-keys.合作导师职称中文, "")
+    info.insert(info-keys.合作导师单位, "*****")
   }
   return info
 }

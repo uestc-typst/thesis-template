@@ -1,14 +1,7 @@
 #import "dict.typ": check-and-insert
-#import "fake-bold.typ": set-font
+#import "fake-bold-skew.typ": set-font
 #import "figure-i.typ": (
-  table-figure, 
-  code-figure, 
-  picture-figure, 
-  figure-env-set, 
-  table, 
-  header-line, 
-  footer-line, 
-  middle-line,
-  algorithm-figure,
-  algorithmic)
+  algorithm-figure, algorithmic, bottomrule, code-figure, figure-env-set, midrule, picture-figure, table, table-figure,
+  toprule,
+)
 #import "fixed-witdh-content.typ": *

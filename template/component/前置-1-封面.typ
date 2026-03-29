@@ -27,11 +27,15 @@
   }
   #justified-text-with-underline(4em, 16em, "学号", info.at(info-keys.作者学号))
   #justified-text-with-underline(4em, 16em, "作者姓名", info.at(info-keys.作者中文名))
+  #let text-to-display = info.at(info-keys.指导老师中文名)
+  #if info.at(info-keys.指导老师职称中文) != "" {
+    text-to-display += "   " + info.at(info-keys.指导老师职称中文)
+  }
   #justified-text-with-underline(
     4em,
     16em,
     "指导老师",
-    info.at(info-keys.指导老师中文名) + "   " + info.at(info-keys.指导老师职称中文),
+    text-to-display,
   )
   #justified-text-with-underline(4em, 16em, "学院", info.at(info-keys.作者学院))
 ]

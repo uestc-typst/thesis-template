@@ -17,5 +17,5 @@
   }
 
   #set text(size: font-size.五号)
-  #bilingual-bibliography(body: path, full: true)
+  #bilingual-bibliography(body: path, full: false)
 ]

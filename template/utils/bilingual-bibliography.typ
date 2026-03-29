@@ -4,7 +4,10 @@
 // Author: csimide, OrangeX4
 // Tested only on GB-7714-2015-Numeric
 
-#let citation-replace(it, mapping: (:)) = {
+#let citation-replace(it, 
+                      allow-comma-in-name: false, 
+                      extra-comma-before-et-al-trans: false,
+                      mapping: (:)) = {
   mapping = (
     (
       //"等": "et al",
@@ -128,7 +131,8 @@
 ) = {
 
   show grid.cell.where(x: 1): it => {
-    citation-replace(it, mapping: mapping)
+    citation-replace(it, mapping: mapping, allow-comma-in-name: allow-comma-in-name,
+                     extra-comma-before-et-al-trans: extra-comma-before-et-al-trans)
   }
 
   set text(lang: "zh")
@@ -136,12 +140,12 @@
 }
 
 #let achievement-list(
-  bib-path, 
+  bib-path,
   title: none,
-  items: (), 
+  items: (),
   highlight-names: (),
   mapping: (:),
-  style: "/uestc-thesis-template/template/utils/cite-style.csl" 
+  style: "cite-style.csl" 
 ) = {
   // 1. 预处理
   import "@preview/alexandria:0.2.2": *

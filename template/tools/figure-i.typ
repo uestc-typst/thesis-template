@@ -56,7 +56,6 @@
 #let algo-numering = figure-numering.with(kind: figure-kind-algo, element: none)
 
 #let figure-env-set(body) = {
-
   // subfigure
   show grid: it => {
     show figure: fig => {
@@ -104,35 +103,43 @@
 
   show figure.where(kind: figure-kind-tbl): set figure.caption(position: top)
   show figure.caption: set text(size: font-size.五号)
-   show figure: set figure(gap: 6pt)
+  show figure: set figure(gap: 6pt)
   let figure-body(it) = {
     set par(leading: above-leading-space())
     it
   }
-  show figure.where(kind: figure-kind-pic): set block(above: above-leading-space(space: 6pt, word-space: 单倍行距), below: below-leading-space(12pt))
-  show figure.where(kind: figure-kind-tbl): set block(above: above-leading-space(space: 12pt, word-space: 单倍行距), below: below-leading-space(6pt))
+  show figure.where(kind: figure-kind-pic): set block(
+    above: above-leading-space(space: 6pt, word-space: 单倍行距),
+    below: below-leading-space(12pt),
+  )
+  show figure.where(kind: figure-kind-tbl): set block(
+    above: above-leading-space(space: 12pt, word-space: 单倍行距),
+    below: below-leading-space(6pt),
+  )
 
   show figure.caption: it => {
     let indent-width = measure(h(4em)).width
-    let size = measure(it.body)
+    if str(it.kind).starts-with("sub-") {
+      indent-width = measure(h(1.5em)).width
+    }
     layout(bounds => {
       let full-caption = if it.numbering != none {
-              // let body = str(it.body)
-              if it.body != [] {
-                [#it.supplement#it.counter.display(it.numbering)#h(0.5em)#it.body]
-              } else {
-                [#it.supplement#it.counter.display(it.numbering)]
-              }
-            } else {
-              it.body
-            }
+        if it.body != [] {
+          [#it.supplement#it.counter.display(it.numbering)#h(0.5em)#it.body]
+        } else {
+          [#it.supplement#it.counter.display(it.numbering)]
+        }
+      } else {
+        it.body
+      }
+      let size = measure(full-caption)
       if it.kind != figure-kind-algo {
         if size.width > bounds.width - indent-width * 2 {
           set par(justify: true, leading: above-leading-space())
           box(
-            width: 100%, 
+            width: 100%,
             inset: (x: indent-width), // 左右缩进
-            align(left, full-caption)      // 两端对齐基于左对齐基础
+            align(left, full-caption), // 两端对齐基于左对齐基础
           )
         } else {
           set par(leading: above-leading-space())
@@ -183,8 +190,7 @@
         let bottom_figure = info.at(info-keys.浮动表图标题页置底)
 
         let page = here().page()
-        let h1-on-page = query(heading.where(level: 1))
-        .any(h => h.location().page() == page)
+        let h1-on-page = query(heading.where(level: 1)).any(h => h.location().page() == page)
         let should-force-bottom = false
         let next-state = should-force-bottom
         if h1-on-page and bottom_figure {
@@ -198,22 +204,27 @@
         meta
         figure(body, ..fields, placement: none, outlined: true)
       } else {
-        set block(breakable: false, below: below-leading-space(6pt), 
-              above: above-leading-space(space: 6pt))
+        set block(breakable: false, below: below-leading-space(6pt), above: above-leading-space(space: 6pt))
         let hlines = (grid.hline(stroke: 1.5pt), grid.hline(stroke: 0.75pt), grid.hline(stroke: 1.5pt))
         let caption-align = start
         let _ = fields.remove("caption")
-        let algo = figure(meta + grid(
-          columns: 1,
-          stroke: none,
-          gutter: 0pt,
-          inset: 0pt,
-          hlines.at(0),
-          pad(y: (0.7cm-1em)/2, align(caption-align, it.caption)),
-          hlines.at(1),
-          align(start, it.body),
-          hlines.at(2),
-        ), ..fields, placement: none, outlined: true)
+        let algo = figure(
+          meta
+            + grid(
+              columns: 1,
+              stroke: none,
+              gutter: 0pt,
+              inset: 0pt,
+              hlines.at(0),
+              pad(y: (0.7cm - 1em) / 2, align(caption-align, it.caption)),
+              hlines.at(1),
+              align(start, it.body),
+              hlines.at(2),
+            ),
+          ..fields,
+          placement: none,
+          outlined: true,
+        )
         algo
       }
       count-step(it.kind)
@@ -271,16 +282,38 @@
   figure(
     [
       #set text(size: font-size.五号)
-      #table], 
-    caption: caption, supplement: [表], numbering: tbl-numering, kind: figure-kind-tbl, placement: placement, outlined: false)
+      #table],
+    caption: caption,
+    supplement: [表],
+    numbering: tbl-numering,
+    kind: figure-kind-tbl,
+    placement: placement,
+    outlined: false,
+  )
 }
 
 #let code-figure(caption, code, placement: none) = {
-  figure(code, caption: caption, supplement: [代码], numbering: code-numering, kind: figure-kind-code, placement: placement, outlined: false)
+  figure(
+    code,
+    caption: caption,
+    supplement: [代码],
+    numbering: code-numering,
+    kind: figure-kind-code,
+    placement: placement,
+    outlined: false,
+  )
 }
 
 #let picture-figure(caption, picture, placement: none) = {
-  figure(picture, caption: caption, supplement: [图], kind: figure-kind-pic, numbering: pic-numering, placement: placement, outlined: false)
+  figure(
+    picture,
+    caption: caption,
+    supplement: [图],
+    kind: figure-kind-pic,
+    numbering: pic-numering,
+    placement: placement,
+    outlined: false,
+  )
 }
 
 #let algorithm-figure(
@@ -294,7 +327,8 @@
   line-numbers: true,
   line-numbers-format: x => {
     set align(right)
-    [#x:]},
+    [#x:]
+  },
   horizontal-offset: 1.63640em,
 ) = {
   return figure(
@@ -307,18 +341,19 @@
     [
       #set text(size: font-size.五号)
       #algorithm(
-      indent: indent,
-      inset: (
-        bottom: above-leading-space()/2, 
-        top: above-leading-space()/2, 
-        left: 0.2em, 
-        right: 0.2em),
-      vstroke: vstroke,
-      line-numbers: line-numbers,
-      line-numbers-format: line-numbers-format,
-      horizontal-offset: horizontal-offset,
-      ..bits,
-    )],
+        indent: indent,
+        inset: (
+          bottom: above-leading-space() / 2,
+          top: above-leading-space() / 2,
+          left: 0.2em,
+          right: 0.2em,
+        ),
+        vstroke: vstroke,
+        line-numbers: line-numbers,
+        line-numbers-format: line-numbers-format,
+        horizontal-offset: horizontal-offset,
+        ..bits,
+      )],
   )
 }
 
@@ -327,8 +362,9 @@
   align: horizon + center,
   rows: auto,
   gutter: 0pt,
-  inset: (bottom: (0.6cm-1em)/2, top: (0.6cm-1em)/2))
+  inset: (bottom: (0.6cm - 1em) / 2, top: (0.6cm - 1em) / 2),
+)
 
-#let header-line = table.hline.with(stroke: 1.5pt)
-#let footer-line = table.hline.with(stroke: 1.5pt)
-#let middle-line = table.hline.with(stroke: 0.75pt)
+#let toprule = table.hline.with(stroke: 1.5pt)
+#let bottomrule = table.hline.with(stroke: 1.5pt)
+#let midrule = table.hline.with(stroke: 0.75pt)

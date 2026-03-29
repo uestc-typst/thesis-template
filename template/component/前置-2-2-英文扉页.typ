@@ -43,6 +43,10 @@
       ""
     }
 
+    #let text-to-display = info.at(info-keys.指导老师英文名)
+    #if info.at(info-keys.指导老师职称英文) != "" {
+      text-to-display = text-to-display + "   " + info.at(info-keys.指导老师职称英文)
+    }
     #grid(
       columns: 1fr,
       rows: (1fr, 1fr, 1fr, 1fr, 1fr),
@@ -65,7 +69,7 @@
         align(right)[Supervisor],
         align(
           center,
-          text(weight: "bold", info.at(info-keys.指导老师职称英文) + "  " + info.at(info-keys.指导老师英文名)),
+          text(weight: "bold", text-to-display),
         ),
       ),
       fixed-text-with-underline(
