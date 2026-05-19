@@ -15,7 +15,7 @@
 
   #block()[
     #set align(center)
-    #set text(font: get-hei-font(info), size: font-size.小二, weight: "bold")
+    #set text(font: get-hei-font(info), size: font-size.小二, weight: "bold", lang: "en")
     #info.at(info-keys.论文英文标题)
   ]
 
