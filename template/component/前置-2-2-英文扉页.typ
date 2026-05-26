@@ -3,6 +3,7 @@
 #import "../tools/lib.typ": *
 
 #let 英文扉页(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
@@ -31,7 +32,7 @@
     }
   ]
 
-  #v(13em)
+  #v(12em)
 
   #block(height: 140pt)[
     #set align(center)

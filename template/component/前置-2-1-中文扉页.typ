@@ -2,6 +2,7 @@
 #import "../tools/lib.typ": *
 
 #let 中文扉页(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 

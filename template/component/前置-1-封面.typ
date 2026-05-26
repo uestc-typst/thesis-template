@@ -41,6 +41,8 @@
 ]
 
 #let 封面(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
+
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
@@ -94,6 +96,8 @@
     #image("../../pics/logo.svg", width: auto)
   ]
 
+  #v(1.5cm)
+
   #block(height: 70pt, inset: 0pt)[
     #set text(size: font-size.小二, weight: "bold")
     #set align(center + top)
@@ -114,7 +118,8 @@
     ]
   ]
 
-  #block(height: 20pt)[#sym.space]
+  // #block(height: 0pt)[#sym.space]
+  #v(10pt)
 
   #block(
     height: 180pt,
