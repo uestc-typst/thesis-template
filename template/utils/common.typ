@@ -16,7 +16,12 @@
 }
 
 #let commen-space-set(body) = {
-  set par(first-line-indent: (amount: 2em, all: true), justify: true, leading: above-leading-space(), spacing: above-leading-space())
+  set par(
+    first-line-indent: (amount: 2em, all: true),
+    justify: true,
+    leading: above-leading-space(),
+    spacing: above-leading-space(),
+  )
   body
 }
 
@@ -26,3 +31,25 @@
 }
 
 #let noindent = context h(-par.first-line-indent.amount)
+
+// 标记论文修改内容
+// 通过 thesis 中注入的 <info> 元数据读取打印模式
+// silent 为 true 时显示原内容，false 时字体颜色设为红色
+// 用法: #revise[修改的内容]
+#let revise(body) = context {
+  let infos = query(<info>)
+  // infos.len() > 0是因为info包含abstract，而在abstract里面可能会调用revise，此时info是空的，所以默认打印模式为true，然后下次编译再重新设置
+  let silent = if infos.len() > 0 {
+    infos.first().value.at(info-keys.打印模式)
+  } else {
+    true
+  }
+  if silent {
+    body
+  } else {
+    [
+      #set text(fill: red)
+      #body
+    ]
+  }
+}

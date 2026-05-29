@@ -320,7 +320,7 @@
   caption,
   ..bits,
   placement: none,
-  supplement: text(font: "Heiti SC")[算法],
+  supplement: text(font: "SimHei")[算法],
   inset: 0.2em,
   indent: 0.5em,
   vstroke: 0pt,

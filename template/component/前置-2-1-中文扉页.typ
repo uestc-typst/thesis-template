@@ -29,37 +29,56 @@
     #text(size: font-size.小初, weight: "bold")[#fixed-width-text-justified(width: 7em, "学位论文")]
   ]
 
-  #v(3em)
+  #layout(size => context {
+    let txt = info.at(info-keys.论文中文标题).replace("\n", "")
+    let line-h = measure(block(text(size: font-size.小二, weight: "bold", fixed-width-underline(
+      width: size.width,
+      "面向应用的扩散模高效训练、隐私审计与离散编码研究",
+    )))).height
+    let title-h = measure(block(text(size: font-size.小二, weight: "bold", fixed-width-underline(
+      width: size.width,
+      txt,
+    )))).height
+    let title-shrink = if title-h > line-h * 1.3 { 1em } else { 0em }
 
-  #block()[
-    #text(size: font-size.小二, weight: "bold")[
-      // 这里去掉换行符
-      #fixed-width-underline(width: auto, info.at(info-keys.论文中文标题).replace("\n", ""))
-    ]
-    #block()[
-      #set text(size: font-size.小四)
-      #fixed-width-text(width: 20em, align(center)[（题名和副题名）])
-    ]
-  ]
+    v(3em - title-shrink)
 
-  #let shrink = 0em
-  #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
-    shrink = 1.5em
-  }
-  #v(3em - shrink)
+    let width_name = size.width
+    if title-shrink > 0em {
+      width_name = width_name * 0.9
+    }
 
-  #block(height: auto)[
-    #block()[
-      #set text(size: font-size.三号, weight: "bold")
-      #fixed-width-underline(width: 7em, info.at(info-keys.作者中文名))
+    block()[
+      #text(size: font-size.小二, weight: "bold")[
+        #fixed-width-underline(width: width_name, txt)
+      ]
+      #block()[
+        #set text(size: font-size.小四)
+        #fixed-width-text(width: 20em, align(center)[（题名和副题名）])
+      ]
     ]
-    #block()[
-      #set text(size: font-size.小四)
-      #fixed-width-text(width: 20em, align(center)[（作者姓名）])
-    ]
-  ]
 
-  #v(3em - shrink)
+    let shrink = 0em
+    if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
+      shrink = 1.5em
+    }
+    v(3em - shrink - title-shrink)
+
+    block(height: auto)[
+      #block()[
+        #set text(size: font-size.三号, weight: "bold")
+        #fixed-width-underline(width: 7em, info.at(info-keys.作者中文名))
+      ]
+      #block()[
+        #set text(size: font-size.小四)
+        #fixed-width-text(width: 20em, align(center)[（作者姓名）])
+      ]
+    ]
+
+    v(3em - shrink)
+
+    // 注意：使用 layout 时，相关的使用这套高度的代码必须写在 layout 内部
+  })
 
   #let height_name_block = 60pt
   #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
@@ -208,7 +227,7 @@
         ),
         justified-text-with-underline(
           6em,
-          31em,
+          27.8em,
           "专业学位领域",
           align(center, text(weight: "bold", info.at(info-keys.专业学位领域))),
         ),
@@ -279,6 +298,11 @@
   //     ),
   //   )
   // ]
+
+  #let shrink = 0em
+  #if info.at(info-keys.合作导师中文名) != none and info.at(info-keys.合作导师中文名) != "" {
+    shrink = 1.5em
+  }
 
   #v(2em - shrink)
 

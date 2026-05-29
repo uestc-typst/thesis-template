@@ -53,5 +53,9 @@
       style: style,
     )
   }
-  #info.at(info-keys.成果列表).at(成果列表-keys.其他成果)
+  #if (info.at(info-keys.匿名) and info.at(info-keys.成果列表).at(成果列表-keys.其他成果-匿名) != none) {
+    info.at(info-keys.成果列表).at(成果列表-keys.其他成果-匿名)
+  } else {
+    info.at(info-keys.成果列表).at(成果列表-keys.其他成果)
+  }
 ]

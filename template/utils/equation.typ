@@ -134,9 +134,9 @@
   body
 }
 
-#let theorem-supplement = text(font: "Heiti SC")[定理]
-#let lemma-supplement = text(font: "Heiti SC")[引理]
-#let proof-supplement = text(font: "Heiti SC")[证明]
+#let theorem-supplement = text(font: "SimHei")[定理]
+#let lemma-supplement = text(font: "SimHei")[引理]
+#let proof-supplement = text(font: "SimHei")[证明]
 
 #let numbering-theorem(kind: none, step: false, ref: none) = {
   let loc = if ref != none { ref } else { here() }

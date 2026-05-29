@@ -6,5 +6,5 @@
 )
 #import "template/tools/term.typ": print-glossary, term
 #import "template/utils/ref.typ": c
-#import "template/utils/common.typ": noindent
+#import "template/utils/common.typ": noindent, revise
 #import "template/utils/equation.typ": lemma, proof, theorem
