@@ -55,7 +55,7 @@
     indent: 2em, // 这是一个排版优化，让条目稍微缩进一点
   )
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     context {
       let current-page = here().page()
       if calc.even(current-page) {
@@ -73,7 +73,7 @@
     indent: 2em,
   )
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     context {
       let current-page = here().page()
       if calc.even(current-page) {
