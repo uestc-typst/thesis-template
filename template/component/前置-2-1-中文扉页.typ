@@ -2,6 +2,7 @@
 #import "../tools/lib.typ": *
 
 #let 中文扉页(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
@@ -184,14 +185,18 @@
     9em,
     24.5em,
     "学位授予单位和日期",
-    align(center, text(weight: "bold", info.at(info-keys.学位授予单位) + "   " + info.at(info-keys.学位授予日期))),
+    align(center, text(weight: "bold", info.at(info-keys.学位授予单位) + "      " + info.at(info-keys.学位授予日期))),
   )
 
+  #let 答辩委员会主席显示文本 = info.at(info-keys.答辩委员会主席)
+  #if info.at(info-keys.答辩委员会主席职称) != none and info.at(info-keys.答辩委员会主席职称) != "" {
+    答辩委员会主席显示文本 = 答辩委员会主席显示文本 + "   " + info.at(info-keys.答辩委员会主席职称)
+  }
   #let 答辩委员会主席行 = justified-text-with-underline(
     7em,
     26.5em,
     "答辩委员会主席",
-    align(center, text(weight: "bold", info.at(info-keys.答辩委员会主席))),
+    align(center, text(weight: "bold", 答辩委员会主席显示文本)),
   )
 
   #let 评阅人行 = justified-text-with-underline(
@@ -200,7 +205,7 @@
     "评阅人",
     align(
       center,
-      text(weight: "bold", info.at(info-keys.答辩委员会成员).fold("", (prev, it) => { prev + it + "   " })),
+      text(weight: "bold", info.at(info-keys.评阅人).fold("", (prev, it) => { prev + it + "   " })),
     ),
   )
 
@@ -311,7 +316,7 @@
     #text(size: font-size.五号)[注1:注明《国际十进分类法UDC》的类号。]
   ]
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     pagebreak(weak: true, to: "odd")
   }
 ]

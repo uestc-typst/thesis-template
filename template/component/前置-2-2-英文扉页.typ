@@ -3,6 +3,7 @@
 #import "../tools/lib.typ": *
 
 #let 英文扉页(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
@@ -31,7 +32,7 @@
     }
   ]
 
-  #v(13em)
+  #v(12em)
 
   #block(height: 140pt)[
     #set align(center)
@@ -82,7 +83,7 @@
   ]
 
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     pagebreak(weak: true, to: "odd")
   }
 ]

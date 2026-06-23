@@ -8,7 +8,7 @@
   info-keys.等宽字体: default-info.at(info-keys.等宽字体),
   info-keys.加粗粗度: 500,
   info-keys.匿名: false,
-  info-keys.打印模式: false,
+  info-keys.论文模式: 论文模式.打印模式,
   /*
     封面参数
   */
@@ -52,8 +52,7 @@
   info-keys.学位授予日期: "学位授予日期",
   info-keys.答辩委员会主席: "答辩委员会主席",
   info-keys.答辩委员会主席职称: "答辩委员会主席职称",
-  info-keys.答辩委员会成员: ("答辩委员会成员",),
-  info-keys.答辩委员会成员职称: ("答辩委员会成员职称",),
+  info-keys.评阅人: ("评阅人",),
   //
   // 英文扉页
   //

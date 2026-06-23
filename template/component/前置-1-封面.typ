@@ -41,6 +41,8 @@
 ]
 
 #let 封面(info: (:)) = [
+  #set page(margin: (bottom: 1cm))
+
   // for debug
   #set block(stroke: if info.at(info-keys.DEBUG) { red } else { none })
 
@@ -73,7 +75,7 @@
   } else if info.at(info-keys.申请学位级别) == "博士" {
     if info.at(info-keys.学位类型) == "学术型" {
       title-chinese = "博士学位论文"
-      title-english = " DOCKTORAL DISSERTATION "
+      title-english = " DOCTORAL DISSERTATION "
     } else if info.at(info-keys.学位类型) == "专业型" {
       title-chinese = "专业学位博士学位论文"
       title-english = " DOCTORAL DISSERTATION FOR PROFESSIONAL DEGREE "
@@ -93,6 +95,8 @@
   #block(height: 160pt, inset: 0pt)[
     #image("../../pics/logo.svg", width: auto)
   ]
+
+  #v(1.5cm)
 
   #block(height: 70pt, inset: 0pt)[
     #set text(size: font-size.小二, weight: "bold")
@@ -114,7 +118,8 @@
     ]
   ]
 
-  #block(height: 20pt)[#sym.space]
+  // #block(height: 0pt)[#sym.space]
+  #v(10pt)
 
   #block(
     height: 180pt,
@@ -131,7 +136,7 @@
   ]
 
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     pagebreak(weak: true, to: "odd")
   }
 ]

@@ -30,16 +30,15 @@
   }
   #abstract-template(info, "摘要", abstract, "关键词：", "，", keywords)
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #set page(header: none, footer: none)
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     context {
       let current-page = here().page()
       if calc.even(current-page) {
-        page(header: none, footer: none)[
-          #v(1fr)
-          #counter(page).update(n => n - 1)
-        ]
+        counter(page).update(n => n - 1)
       }
     }
+    pagebreak(weak: true, to: "odd")
   }
 ]
 
@@ -53,15 +52,14 @@
 
   #abstract-template(info, "ABSTRACT", abstract, "Keywords: ", ", ", keywords)
   #pagebreak(weak: true)
-  #if info.at(info-keys.打印模式) {
+  #set page(header: none, footer: none)
+  #if info.at(info-keys.论文模式) == 论文模式.打印模式 {
     context {
       let current-page = here().page()
       if calc.even(current-page) {
-        page(header: none, footer: none)[
-          #v(1fr)
-          #counter(page).update(n => n - 1)
-        ]
+        counter(page).update(n => n - 1)
       }
     }
+    pagebreak(weak: true, to: "odd")
   }
 ]

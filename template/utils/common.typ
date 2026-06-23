@@ -33,14 +33,14 @@
 #let noindent = context h(-par.first-line-indent.amount)
 
 // 标记论文修改内容
-// 通过 thesis 中注入的 <info> 元数据读取打印模式
-// silent 为 true 时显示原内容，false 时字体颜色设为红色
+// 通过 thesis 中注入的 <info> 元数据读取论文模式
+// 仅在「修订模式」下将内容标红，其余模式（电子档定稿模式、打印模式）原样显示
 // 用法: #revise[修改的内容]
 #let revise(body) = context {
   let infos = query(<info>)
-  // infos.len() > 0是因为info包含abstract，而在abstract里面可能会调用revise，此时info是空的，所以默认打印模式为true，然后下次编译再重新设置
+  // infos.len() > 0是因为info包含abstract，而在abstract里面可能会调用revise，此时info是空的，所以默认不标红，然后下次编译再重新设置
   let silent = if infos.len() > 0 {
-    infos.first().value.at(info-keys.打印模式)
+    infos.first().value.at(info-keys.论文模式) != 论文模式.修订模式
   } else {
     true
   }
