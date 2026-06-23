@@ -75,7 +75,7 @@
   } else if info.at(info-keys.申请学位级别) == "博士" {
     if info.at(info-keys.学位类型) == "学术型" {
       title-chinese = "博士学位论文"
-      title-english = " DOCKTORAL DISSERTATION "
+      title-english = " DOCTORAL DISSERTATION "
     } else if info.at(info-keys.学位类型) == "专业型" {
       title-chinese = "专业学位博士学位论文"
       title-english = " DOCTORAL DISSERTATION FOR PROFESSIONAL DEGREE "
