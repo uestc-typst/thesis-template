@@ -37,6 +37,10 @@
 
 #let header-目录 = header-with-text("目 录")
 
+#let header-图目录 = header-with-text("插图清单")
+
+#let header-表目录 = header-with-text("表格清单")
+
 #let header-正文 = context {
   let txt = "电子科技大学" + query(<学位>).first().value + "学位论文"
   let body-page = counter(page).get().at(0, default: 0)
@@ -101,6 +105,16 @@
 
 #let set-目录-page(body) = {
   set page(header: header-目录, footer: footer-罗马数字页码)
+  body
+}
+
+#let set-图目录-page(body) = {
+  set page(header: header-图目录, footer: footer-罗马数字页码)
+  body
+}
+
+#let set-表目录-page(body) = {
+  set page(header: header-表目录, footer: footer-罗马数字页码)
   body
 }
 

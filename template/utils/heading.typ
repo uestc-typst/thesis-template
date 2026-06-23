@@ -1,11 +1,16 @@
 #import "../tools/lib.typ": *
 #import "info.typ": *
 #import "font.typ": *
-#import "word_spacing.typ": above-leading-space, below-leading-space, heading-1, heading-2, heading-3, heading-4, word-below-leading-space, word-leading-space
+#import "word_spacing.typ": (
+  above-leading-space, below-leading-space, heading-1, heading-2, heading-3, heading-4, word-below-leading-space,
+  word-leading-space,
+)
 
 #let supplement-中文摘要 = "中文摘要"
 #let supplement-英文摘要 = "英文摘要"
 #let supplement-目录 = "目录"
+#let supplement-图目录 = "图目录"
+#let supplement-表目录 = "表目录"
 #let supplement-正文 = "正文"
 #let supplement-致谢 = "致谢"
 #let supplement-附录 = "附录"
@@ -18,19 +23,32 @@
 #let set-global-heading(info, body) = {
   // --- 1. 状态重置机制 ---
   // 遇到正文、图表、公式时，标记"上一个元素不是标题"
-  show par: it => { last-heading-level.update((level: 0, excess: 0pt)); it}
-  show figure: it => { last-heading-level.update((level: 0, excess: 0pt)); it }
-  show math.equation.where(block: true): it => { last-heading-level.update((level: 0, excess: 0pt)); it }
-  show list: it => { last-heading-level.update((level: 0, excess: 0pt)); it }
-  show enum: it => { last-heading-level.update((level: 0, excess: 0pt)); it }
+  show par: it => {
+    last-heading-level.update((level: 0, excess: 0pt))
+    it
+  }
+  show figure: it => {
+    last-heading-level.update((level: 0, excess: 0pt))
+    it
+  }
+  show math.equation.where(block: true): it => {
+    last-heading-level.update((level: 0, excess: 0pt))
+    it
+  }
+  show list: it => {
+    last-heading-level.update((level: 0, excess: 0pt))
+    it
+  }
+  show enum: it => {
+    last-heading-level.update((level: 0, excess: 0pt))
+    it
+  }
 
   // --- 2. 一级标题 (通常强制分页，只需更新状态) ---
   show heading.where(level: 1): it => context {
     // 一级标题强制分页，不需要判断 above 为 0，但需要更新状态供二级标题检测
     pagebreak(weak: false)
-    last-heading-level.update((level: 1, excess: heading-1.below - 
-                                                below-leading-space(heading-1.below)
-                                                ))
+    last-heading-level.update((level: 1, excess: heading-1.below - below-leading-space(heading-1.below)))
 
     set text(size: font-size.小三, font: get-hei-font(info))
     set align(center)
@@ -38,7 +56,7 @@
       block(
         width: 100%,
         above: heading-1.above,
-        below: below-leading-space(heading-1.below), 
+        below: below-leading-space(heading-1.below),
         sticky: true,
         inset: (top: heading-1.above),
       )[
@@ -51,7 +69,6 @@
     }
   }
 
-
   // --- 3. 二级标题 (需要判断是否紧跟一级标题) ---
   show heading.where(level: 2): it => context {
     let prev-level = last-heading-level.get().level
@@ -59,8 +76,7 @@
     let spacing-above = if prev-level > 0 { 0pt } else { above-leading-space(space: heading-2.above) }
 
     // 渲染前先更新状态 (放在 block 后面也行，但 context 内通常顺序执行)
-    last-heading-level.update((level: 2, excess: heading-2.below - 
-                                                  below-leading-space(heading-2.below)))
+    last-heading-level.update((level: 2, excess: heading-2.below - below-leading-space(heading-2.below)))
 
     set align(left)
     set text(size: font-size.四号, font: get-hei-font(info))
@@ -72,7 +88,7 @@
       width: 100%,
       above: spacing-above, // <--- 应用动态间距
       sticky: true,
-      below: below-leading-space(heading-2.below), 
+      below: below-leading-space(heading-2.below),
     )[
       #if it.numbering == none {
         [#it.body]
@@ -86,9 +102,8 @@
   show heading.where(level: 3): it => context {
     let prev-level = last-heading-level.get().level
     let spacing-above = if prev-level > 0 { 0pt } else { above-leading-space(space: heading-3.above) }
-    
-    last-heading-level.update((level: 3, excess: heading-3.below - 
-                                                  below-leading-space(heading-3.below)))
+
+    last-heading-level.update((level: 3, excess: heading-3.below - below-leading-space(heading-3.below)))
 
     set align(left)
     set text(size: font-size.四号, font: get-hei-font(info))
@@ -99,7 +114,7 @@
       width: 100%,
       above: spacing-above, // <--- 应用动态间距
       sticky: true,
-      below: below-leading-space(heading-3.below), 
+      below: below-leading-space(heading-3.below),
     )[
       #counter(heading).display(it.numbering)#h(0.5em)#it.body
     ]
@@ -109,9 +124,8 @@
   show heading.where(level: 4): it => context {
     let prev-level = last-heading-level.get().level
     let spacing-above = if prev-level > 0 { 0pt } else { above-leading-space(space: heading-4.above) }
-    
-    last-heading-level.update((level: 4, excess: heading-4.below - 
-                                                  below-leading-space(heading-4.below)))
+
+    last-heading-level.update((level: 4, excess: heading-4.below - below-leading-space(heading-4.below)))
 
     set align(left)
     set text(size: font-size.小四, font: get-hei-font(info))
@@ -122,7 +136,7 @@
       width: 100%,
       above: spacing-above, // <--- 应用动态间距
       sticky: true,
-      below: below-leading-space(heading-4.below), 
+      below: below-leading-space(heading-4.below),
     )[
       #counter(heading).display(it.numbering)#h(0.5em)#it.body
     ]
@@ -142,7 +156,17 @@
 }
 
 #let set-目录-heading(body) = {
-  set heading(supplement: supplement-目录, numbering: none)
+  set heading(supplement: supplement-目录, numbering: none, outlined: false)
+  body
+}
+
+#let set-图目录-heading(body) = {
+  set heading(supplement: supplement-图目录, numbering: none, outlined: false)
+  body
+}
+
+#let set-表目录-heading(body) = {
+  set heading(supplement: supplement-表目录, numbering: none, outlined: false)
   body
 }
 

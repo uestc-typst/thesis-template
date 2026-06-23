@@ -45,7 +45,15 @@
   show: set-目录-heading.with()
   show: set-目录-page.with()
   目录(info: info)
-  图表目录(info: info)
+
+  show: set-图目录-heading.with()
+  show: set-图目录-page.with()
+  图目录(info: info)
+
+  show: set-表目录-heading.with()
+  show: set-表目录-page.with()
+  表目录(info: info)
+
   缩略词表等注释表(info: info)
 
   // 此时到了正文页，需要重置页码为 1

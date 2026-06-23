@@ -4,7 +4,8 @@
 #import "前置-3-独创性声明和论文使用授权.typ": 独创性声明和论文使用授权
 #import "前置-4-摘要.typ": 中文摘要, 英文摘要
 #import "前置-5-目录.typ": 目录
-#import "前置-6-图表目录.typ": 图表目录
+#import "前置-6-1-图目录.typ": 图目录
+#import "前置-6-2-表目录.typ": 表目录
 #import "前置-7-缩略词表等注释表.typ": 缩略词表等注释表
 #import "正文.typ": 正文
 #import "结尾-1-致谢.typ": 致谢
