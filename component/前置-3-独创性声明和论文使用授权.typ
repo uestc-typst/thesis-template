@@ -11,7 +11,7 @@
       }
       // 用户提供的路径相对于项目根目录（main.typ 所在位置）
       // 而本文件位于 template/component/ 下，需要回溯到项目根目录
-      #let resolved-path = "../../../" + scan-path
+      #let resolved-path = "../../" + scan-path
       // 检查文件是否存在
       #let _ = read(resolved-path, encoding: none)
       // 检查扫描页是否为 A4 大小（宽高比 210:297）

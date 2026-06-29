@@ -22,7 +22,7 @@
   #set par(first-line-indent: 0em)
   #set enum(numbering: "[1]")
 
-  #let prefix-path = "../../../"
+  #let prefix-path = "../../"
   #let bibs = info.at(info-keys.成果列表).at(成果列表-keys.成果文件)
   #let path = if type(bibs) == str {
     prefix-path + bibs
