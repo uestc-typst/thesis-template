@@ -1,4 +1,4 @@
-#import "@preview/strict-modern-uestc-thesis:2.0.0": *
+#import "lib.typ": *
 
 = 电子科技大学参考网站
 #block(width: 100%)[

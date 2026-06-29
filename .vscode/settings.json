@@ -6,7 +6,7 @@
     // "tinymist.exportPdf": "onSave",
     // 输出路径 以pdf结尾!
     "tinymist.outputPath": "${fileWorkspaceFolder}/template/学位论文写作指南及例子",
-    "tinymist.rootPath": "${fileWorkspaceFolder}/template",
+    "tinymist.rootPath": "${fileWorkspaceFolder}",
     // 字体地址, 修改为模板下的fonts目录
     "tinymist.fontPaths": [
         "${fileWorkspaceFolder}/template/uestc-thesis-template/fonts"

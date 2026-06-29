@@ -3,7 +3,7 @@
 // 详细使用说明请参考第一章（src/chapter1.typ）
 
 // 导入模板库
-#import "@preview/strict-modern-uestc-thesis:2.0.0": *
+#import "src/lib.typ": *
 
 // 使用 thesis 函数作为 show rule 来配置论文
 // 所有参数通过 info 字典传递
