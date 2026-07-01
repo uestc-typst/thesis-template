@@ -1,0 +1,43 @@
+name: build_pdf
+
+# on: push
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  render_pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: typst-community/setup-typst@v3
+      - name: build
+        run: |
+          cd template
+          make build
+          # 将生成的 PDF 移到仓库根目录，使 output 分支中不包含 example/ 目录
+          mv *.pdf ..
+
+      - name: Checkout output branch
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git checkout --orphan output
+          git rm -r --cached .
+          git add -f *.pdf
+          git commit -m "Update output files"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: output
+          force: true
