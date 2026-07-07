@@ -4,7 +4,7 @@
 
 ![image](pics/uestc-love-typst.png)
 
-<a href="https://github.com/uestc-typst/thesis-template/blob/main/LICENSE">
+<a href="LICENSE">
 <img alt="Apache-2 License" src="https://img.shields.io/badge/license-Apache%202-brightgreen"
 ></a>
 
@@ -26,10 +26,10 @@
 </div>
 
 
-# 📚电子科技大学学位论文Typst模板实例
+# 📚电子科技大学学位论文Typst模板
 
 > [!NOTE]
-> ⚠️ **非官方模板**：本模板由社区开发，并非电子科技大学官方发布。作者已尽力与[学位管理 - 电子科技大学研究生院](https://gr.uestc.edu.cn/xiazai/114/3917)的格式要求保持同步。
+> ⚠️ **非官方模板**：本[模板](https://github.com/uestc-typst/thesis-template)由社区开发，并非电子科技大学官方发布。作者已尽力与[学位管理 - 电子科技大学研究生院](https://gr.uestc.edu.cn/xiazai/114/3917)的格式要求保持同步。
 >
 > 由于 Word 与 Typst 在排版机制上存在细微差异，**不能保证所有细节与学校模板完全一致**。
 >
