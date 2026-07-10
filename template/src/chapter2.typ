@@ -27,10 +27,8 @@
 如果中英文之间、符号与中文中间出现错位，通常是字体原因。
 
 - Windows 默认字体 `SimHei`（黑体）和 `SimSun`（宋体）无需额外安装
-- macOS/Linux 建议使用思源字体，修改 `main.typ` 中的字体设置：
-  - `info-keys.黑体字体: "Source Han Sans SC"`
-  - `info-keys.宋体字体: "Source Han Serif SC"`
+- macOS/Linux 建议从#link("https://github.com/uestc-typst/uestc-fonts")下载对应字体。
 
 === Typst 版本
 
-本模板要求 Typst 版本 >= 0.13.0，可以通过 `typst --version` 检查。
+本模板要求 Typst 版本 >= 0.15.0，可以通过 `typst --version` 检查。
